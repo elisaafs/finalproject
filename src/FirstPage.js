@@ -1,7 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { changeLanguage } from "./actions/language";
+import { setMyProfilePic, loadMyProfile } from "./actions/profile";
 import translations from "./translations";
+import Registration from "./Registration";
+import Login from "./Login";
+import axios from "./axios";
 
 const mapStateToProps = state => {
     return {
@@ -11,7 +15,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        changeLanguage: language => dispatch(changeLanguage(language))
+        changeLanguage: language => dispatch(changeLanguage(language)),
+        setProfilePic: url => dispatch(setMyProfilePic(url)),
+        loadMyProfile: dispatch(loadMyProfile())
     };
 };
 
@@ -22,15 +28,18 @@ function FirstPage({ language, changeLanguage }) {
                 Switch to English
             </div>
             <div onClick={changeLanguage.bind(null, "de")}>
-                Switch to German
+                Umschalten auf Deutsch
             </div>
             <div onClick={changeLanguage.bind(null, "pt")}>
-                Switch to Portuguese
+                Mudar para Português
             </div>
             <div onClick={changeLanguage.bind(null, "es")}>
-                Switch to Spanish
+                Cambiar a Español
             </div>
             {translations.WE_SPEAK[language]}
+
+            <Registration language={language} />
+            <Login language={language} />
         </div>
     );
 }

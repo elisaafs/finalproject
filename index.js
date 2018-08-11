@@ -42,6 +42,14 @@ app.use(bodyParser.json());
 
 app.use(express.static("public"));
 
+const signedOutRedirect = (req, res, next) => {
+    if (!req.session.id) {
+        res.redirect("/welcome");
+    } else {
+        next();
+    }
+};
+
 app.use(compression());
 
 app.use(csurf());
@@ -61,6 +69,132 @@ if (process.env.NODE_ENV != "production") {
 } else {
     app.use("/bundle.js", (req, res) => res.sendFile(`${__dirname}/bundle.js`));
 }
+
+app.post("/registration", (req, res) => {
+    let pass = "";
+    if (
+        !req.body.firstName ||
+        !req.body.lastName ||
+        !req.body.email ||
+        !req.body.password
+    ) {
+        res.json({
+            error: "Please, fill all the fields."
+        });
+    } else {
+        bc.hashPassword(req.body.password.trim())
+            .then(hashedPassword => {
+                pass = hashedPassword;
+                return db
+                    .registerUser(
+                        req.body.firstName,
+                        req.body.lastName,
+                        req.body.email.toLowerCase().trim(),
+                        pass
+                    )
+                    .then(registeredUser => {
+                        req.session.id = registeredUser.id;
+                        res.json({
+                            success: true,
+                            user: registeredUser
+                        });
+                    });
+            })
+            .catch(err => {
+                res.json({
+                    error: "The email address already exists."
+                });
+            });
+    }
+});
+
+app.get("/welcome", function(req, res) {
+    if (req.session.id) {
+        res.redirect("/");
+    } else {
+        res.sendFile(__dirname + "/index.html");
+    }
+});
+
+app.post("/login", function(req, res) {
+    if (!req.body.email || !req.body.password) {
+        res.json({
+            error: "Please, fill all the fields."
+        });
+    } else {
+        db.getInfoUser(req.body.email.toLowerCase().trim()).then(results => {
+            if (results === undefined || results.length === 0) {
+                res.json({
+                    error: "Email or password incorrect"
+                });
+            } else {
+                let hashedPassword = results.hashed_password;
+                bc.checkPassword(req.body.password.trim(), hashedPassword).then(
+                    checked => {
+                        if (checked) {
+                            req.session.id = results.id;
+                            res.json({
+                                success: true
+                            });
+                        } else {
+                            res.json({
+                                error: "Email or password incorrect"
+                            });
+                        }
+                    }
+                );
+            }
+        });
+    }
+});
+
+app.post("/registration-service", (req, res) => {
+    if (
+        !req.body.name ||
+        !req.body.contact ||
+        !req.body.language ||
+        !req.body.categorie
+    ) {
+        res.json({
+            error: "Please, fill the required fields."
+        });
+    } else {
+        return db
+            .registerService(
+                req.body.name,
+                req.body.homepage,
+                req.body.address,
+                req.body.categorie,
+                req.body.description,
+                req.body.contact,
+                req.body.subCategorie,
+                req.body.language,
+                req.body.fluence
+            )
+            .then(registeredService => {
+                res.json({
+                    success: true,
+                    service: registeredService
+                });
+            })
+            .catch(err => {
+                res.json({
+                    success: false
+                });
+            });
+    }
+});
+
+app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
+    db.updateUserImage(req.session.id, config.s3Url + req.file.filename).then(
+        imgUrl => {
+            res.json({
+                success: true,
+                url: imgUrl
+            });
+        }
+    );
+});
 
 app.get("*", function(req, res) {
     res.sendFile(__dirname + "/index.html");

@@ -5,6 +5,8 @@ import reduxPromise from "redux-promise";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import FirstPage from "./FirstPage";
+// import Homepage from "./Homepage";
+// import { BrowserRouter } from "react-router-dom";
 import mainReducer from "./reducers/index";
 
 const store = createStore(
@@ -17,6 +19,21 @@ const elem = (
         <FirstPage />
     </Provider>
 );
+
+// const elem = (store,
+// (
+//     <Provider store={store}>
+//         <BrowserRouter>
+//             <Homepage />
+//         </BrowserRouter>
+//     </Provider>
+// ));
+
+// if (location.pathname == "/welcome") {
+//     ReactDOM.render(<FirstPage />, mainElement);
+// } else {
+//     ReactDOM.render(elem, mainElement);
+// }
 
 const mainElement = document.querySelector("main");
 

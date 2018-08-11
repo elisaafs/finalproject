@@ -13,6 +13,27 @@ const translations = {
         es: "Guardar"
     },
 
+    EDIT_SERVICES: {
+        en: "Edit service informations",
+        de: "Anmelden",
+        pt: "Editar as informações do serviço.",
+        es: "Guardar"
+    },
+
+    REQUIRED_FIELDS: {
+        en: "Please, fill the required fields.",
+        de: "Anmelden",
+        pt: "Por favor, preencha os campos obrigatórios.",
+        es: "Guardar"
+    },
+
+    SELECT_IMAGE: {
+        en: "Select an image",
+        de: "Anmelden",
+        pt: "Selecione uma imagem",
+        es: "Guardar"
+    },
+
     WE_SPEAK: {
         en: "We speak your language.",
         de: "Anmelden",
@@ -25,6 +46,20 @@ const translations = {
         de: "Anmelden",
         pt: "Selecione a sua classificação.",
         es: "Selecciona tu clasificación."
+    },
+
+    ERROR_MESSAGE_INCORRECT: {
+        en: "Email or password incorrect.",
+        de: "Anmelden",
+        pt: "Email ou senha incorretos.",
+        es: "Email o contraseña incorrectos."
+    },
+
+    ERROR_MESSAGE_EMPTY: {
+        en: "Please, fill all the fields.",
+        de: "Anmelden",
+        pt: "Por favor, preencha todos os campos.",
+        es: "Por favor, rellene todos los campos."
     },
 
     PUBLISH_RATE: {
@@ -41,11 +76,46 @@ const translations = {
         es: "Mi Perfil"
     },
 
+    EDIT_PROFILE: {
+        en: "Edit Profile",
+        de: "Anmelden",
+        pt: "Editar Perfil",
+        es: "Editar Perfil"
+    },
+
+    NEW_PASSWORD: {
+        en: "Type a new password",
+        de: "Anmelden",
+        pt: "Digite uma nova senha",
+        es: "Editar Perfil"
+    },
+
+    LANGUAGES_SPEAK: {
+        en: "Languages I speak",
+        de: "Anmelden",
+        pt: "Idiomas que eu falo",
+        es: "Editar Perfil"
+    },
+
+    PROFILE: {
+        en: "Profile",
+        de: "Anmelden",
+        pt: "Perfil",
+        es: "Perfil"
+    },
+
     REGISTER_SERVICE: {
         en: "Register a service",
         de: "Anmelden",
         pt: "Registre um serviço.",
         es: "Registrar un servicio"
+    },
+
+    REGISTER_BUTTON: {
+        en: "Register",
+        de: "Anmelden",
+        pt: "Registrar",
+        es: "Registrar"
     },
 
     SIGNUP_BUTTON: {
@@ -69,8 +139,15 @@ const translations = {
         es: "Nombre"
     },
 
+    FIRSTNAME: {
+        en: "First Name",
+        de: "Anmelden",
+        pt: "Nome",
+        es: "Nombre"
+    },
+
     LASTNAME: {
-        en: "Lastname",
+        en: "Last Name",
         de: "Anmelden",
         pt: "Sobrenome",
         es: "Apellido"
@@ -90,11 +167,11 @@ const translations = {
         es: "Contraseña"
     },
 
-    PROFILE_PIC: {
-        en: "Profile Picture",
+    UPDATE_PROFILE_PIC: {
+        en: "Update profile picture",
         de: "Email",
-        pt: "Foto de Perfil",
-        es: "Foto de Perfil"
+        pt: "Atualizar foto de perfil",
+        es: "Actualizar foto de perfil"
     },
 
     ADDRESS: {
@@ -104,7 +181,7 @@ const translations = {
         es: "Dirección"
     },
 
-    LANGUAde: {
+    LANGUAGE: {
         en: "Language",
         de: "Email",
         pt: "Idioma",
@@ -118,7 +195,14 @@ const translations = {
         es: "Enviar"
     },
 
-    HOMEPAde: {
+    DESCRIPTION: {
+        en: "Description",
+        de: "Anmelden",
+        pt: "Descrição",
+        es: "Descripción"
+    },
+
+    HOMEPAGE: {
         en: "Homepage",
         de: "Anmelden",
         pt: "Homepage",
@@ -130,6 +214,20 @@ const translations = {
         de: "Anmelden",
         pt: "Categoria",
         es: "Categoría"
+    },
+
+    CONTACT: {
+        en: "Contact",
+        de: "Anmelden",
+        pt: "Contato",
+        es: "Contacto"
+    },
+
+    SUBCATEGORIE: {
+        en: "Subcategorie",
+        de: "Anmelden",
+        pt: "Subcategoria",
+        es: "Subcategoría"
     },
 
     RESTAURANTS: {
