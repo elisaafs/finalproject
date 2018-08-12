@@ -3,11 +3,12 @@ import ReactDOM from "react-dom";
 import { createStore, applyMiddleware } from "redux";
 import reduxPromise from "redux-promise";
 import { Provider } from "react-redux";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { composeWithDevTools } from "redux-devtools-extension";
 import FirstPage from "./FirstPage";
-// import Homepage from "./Homepage";
-// import { BrowserRouter } from "react-router-dom";
 import mainReducer from "./reducers/index";
+import Login from "./Login";
+import Registration from "./Registration";
 
 const store = createStore(
     mainReducer,
@@ -16,24 +17,15 @@ const store = createStore(
 
 const elem = (
     <Provider store={store}>
-        <FirstPage />
+        <BrowserRouter>
+            <Switch>
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/signup" component={Registration} />
+                <Route component={FirstPage} />
+            </Switch>
+        </BrowserRouter>
     </Provider>
 );
-
-// const elem = (store,
-// (
-//     <Provider store={store}>
-//         <BrowserRouter>
-//             <Homepage />
-//         </BrowserRouter>
-//     </Provider>
-// ));
-
-// if (location.pathname == "/welcome") {
-//     ReactDOM.render(<FirstPage />, mainElement);
-// } else {
-//     ReactDOM.render(elem, mainElement);
-// }
 
 const mainElement = document.querySelector("main");
 

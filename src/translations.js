@@ -1,7 +1,7 @@
 const translations = {
     LOGIN_BUTTON: {
         en: "Login",
-        de: "Anmelden",
+        de: "Anmeldung",
         pt: "Entrar",
         es: "Entrar"
     },
@@ -17,21 +17,28 @@ const translations = {
         en: "Edit service informations",
         de: "Anmelden",
         pt: "Editar as informações do serviço.",
-        es: "Guardar"
+        es: "Editar información de servicio."
+    },
+
+    ABOUT_ME: {
+        en: "About me",
+        de: "Über mich",
+        pt: "Sobre mim",
+        es: "Sobre mí"
     },
 
     REQUIRED_FIELDS: {
         en: "Please, fill the required fields.",
         de: "Anmelden",
         pt: "Por favor, preencha os campos obrigatórios.",
-        es: "Guardar"
+        es: "Por favor, rellene los campos obligatorios."
     },
 
     SELECT_IMAGE: {
         en: "Select an image",
         de: "Anmelden",
         pt: "Selecione uma imagem",
-        es: "Guardar"
+        es: "Seleccione una imagen"
     },
 
     WE_SPEAK: {

@@ -4,12 +4,16 @@ export async function editService(serviceId, servicePicture, newInfosService) {
     return {
         type: "LOAD_SERVICES",
         id: serviceId,
-        firstName: newInfosService.firstName,
-        lastName: newInfosService.lastName,
-        profilePic: servicePicture,
-        email: newInfosService.email,
-        country: newInfosService.bio,
+        name: newInfosService.name,
+        contact: newInfosService.contact,
+        address: newInfosService.address,
         city: newInfosService.city,
-        languageSpeak: newInfosService.languageSpeak
+        country: newInfosService.country,
+        language: newInfosService.language,
+        fluence: newInfosService.fluence,
+        categorie: newInfosService.categorie,
+        subcategorie: newInfosService.subcategorie,
+        description: newInfosService.description,
+        picture: servicePicture
     };
 }

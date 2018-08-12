@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import axios from "./axios";
 import translations from "./translations";
+import { connect } from "react-redux";
+
+const mapStateToProps = state => {
+    return {
+        language: state.language
+    };
+};
 
 class Registration extends Component {
     constructor() {
@@ -76,4 +83,4 @@ class Registration extends Component {
     }
 }
 
-export default Registration;
+export default connect(mapStateToProps)(Registration);

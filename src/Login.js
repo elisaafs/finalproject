@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import axios from "./axios";
 import translations from "./translations";
+import { connect } from "react-redux";
+
+const mapStateToProps = state => {
+    return {
+        language: state.language
+    };
+};
 
 class Login extends Component {
     constructor() {
@@ -29,7 +36,7 @@ class Login extends Component {
                     error: resp.data.error
                 });
             } else {
-                location.replace("/profile");
+                this.props.history.replace("/");
             }
         });
     }
@@ -65,4 +72,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default connect(mapStateToProps)(Login);
