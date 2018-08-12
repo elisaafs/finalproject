@@ -71,3 +71,11 @@ exports.updateUserImage = function(userId, profilePic) {
         return results.rows[0].profile_pic;
     });
 };
+
+exports.getUserById = function(userId) {
+    const q = `SELECT id, first_name, last_name, profile_pic, email, city, country, language_speak FROM users WHERE id= $1;`;
+    const params = [userId];
+    return db.query(q, params).then(results => {
+        return results.rows[0];
+    });
+};

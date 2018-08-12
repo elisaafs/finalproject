@@ -3,9 +3,18 @@ import axios from "./axios";
 import translations from "./translations";
 import { connect } from "react-redux";
 
+import { loadMyProfile, setMyProfilePic } from "./actions/profile";
+
 const mapStateToProps = state => {
     return {
         language: state.language
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        loadMyProfile: dispatch(loadMyProfile()),
+        setProfilePic: url => dispatch(setMyProfilePic(url))
     };
 };
 
@@ -36,6 +45,7 @@ class Login extends Component {
                     error: resp.data.error
                 });
             } else {
+                this.props.loadMyProfile();
                 this.props.history.replace("/");
             }
         });
@@ -72,4 +82,7 @@ class Login extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Login);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Login);

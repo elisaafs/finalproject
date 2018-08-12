@@ -1,7 +1,7 @@
 import axios from "../axios";
 
-export async function loadService() {
-    const { data } = await axios.get("/service/(${id})");
+export async function loadService(id) {
+    const { data } = await axios.get(`/service/(${id})`);
     return {
         type: "LOAD_SERVICES",
         id: data.id,

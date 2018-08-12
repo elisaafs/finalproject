@@ -108,14 +108,6 @@ app.post("/registration", (req, res) => {
     }
 });
 
-app.get("/welcome", function(req, res) {
-    if (req.session.id) {
-        res.redirect("/");
-    } else {
-        res.sendFile(__dirname + "/index.html");
-    }
-});
-
 app.post("/login", function(req, res) {
     if (!req.body.email || !req.body.password) {
         res.json({
@@ -194,6 +186,15 @@ app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
             });
         }
     );
+});
+
+app.get("/user", function(req, res) {
+    db.getUserById(req.session.id)
+        .then(data => res.json(data))
+        .catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        });
 });
 
 app.get("*", function(req, res) {

@@ -9,6 +9,8 @@ import FirstPage from "./FirstPage";
 import mainReducer from "./reducers/index";
 import Login from "./Login";
 import Registration from "./Registration";
+import Profile from "./Profile";
+import RegisterService from "./RegisterService";
 
 const store = createStore(
     mainReducer,
@@ -21,6 +23,12 @@ const elem = (
             <Switch>
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Registration} />
+                <Route exact path="/profile" component={Profile} />
+                <Route
+                    exact
+                    path="/register-service"
+                    component={RegisterService}
+                />
                 <Route component={FirstPage} />
             </Switch>
         </BrowserRouter>
