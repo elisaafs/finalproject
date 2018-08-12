@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => {
     return {
         changeLanguage: language => dispatch(changeLanguage(language)),
         setProfilePic: url => dispatch(setMyProfilePic(url)),
-        loadMyProfile: dispatch(loadMyProfile())
+        loadMyProfile: () => dispatch(loadMyProfile())
     };
 };
 

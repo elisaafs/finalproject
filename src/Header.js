@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 import { changeLanguage } from "./actions/language";
 import { setMyProfilePic, loadMyProfile } from "./actions/profile";
 import translations from "./translations";
+import ProfilePicHeader from "./ProfilePicHeader";
 
 const mapStateToProps = state => {
     return {
         loggedIn: state.me.id != undefined,
-        name: state.me.firstName,
-        lastName: state.me.lastName,
-        profilePic: state.me.profilePic,
-        language: state.language
+        me: state.me,
+        language: state.language,
+        profilePicture: state.me.profilePic,
+        firstName: state.me.firstName,
+        lastName: state.me.lastName
     };
 };
 
@@ -23,8 +25,15 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-function Header({ loggedIn, language, changeLanguage }) {
-    console.log({ name });
+function Header({
+    loggedIn,
+    language,
+    changeLanguage,
+    profilePicture,
+    firstName,
+    lastName
+}) {
+    console.log("state", loggedIn);
     return (
         <div className="wrapper-main">
             {!loggedIn ? (
@@ -39,9 +48,16 @@ function Header({ loggedIn, language, changeLanguage }) {
             ) : (
                 <div>
                     <Link to="/profile">{translations.PROFILE[language]}</Link>
-                    <Link to="/register-service">
+                    <Link to="/registration-service">
                         {translations.REGISTER_SERVICE[language]}
                     </Link>
+                    {firstName}
+                    {lastName}
+                    <ProfilePicHeader
+                        image={profilePicture}
+                        first={firstName}
+                        last={lastName}
+                    />
                 </div>
             )}
 

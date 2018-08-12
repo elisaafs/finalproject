@@ -8,6 +8,7 @@ import { withRouter } from "react-router-dom";
 const mapStateToProps = (state, props) => {
     return {
         ...props,
+        language: state.language,
         firstName: state.me.firstName,
         lastName: state.me.lastName,
         city: state.me.city,
@@ -95,10 +96,12 @@ class EditInfosUser extends Component {
                                     className="inputs-edit"
                                     onChange={this.handleChange}
                                     name="lastName"
-                                    value={translations.LASTNAME[language]}
+                                    value={this.state.lastName}
                                     type="text"
                                 />
-                                <div className="down-input">Last Name</div>
+                                <div className="down-input">
+                                    {translations.LASTNAME[language]}
+                                </div>
                                 <input
                                     className="inputs-edit"
                                     onChange={this.handleChange}

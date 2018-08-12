@@ -10,7 +10,9 @@ import mainReducer from "./reducers/index";
 import Login from "./Login";
 import Registration from "./Registration";
 import Profile from "./Profile";
+import Opp from "./Opp";
 import RegisterService from "./RegisterService";
+import EditInfosUser from "./EditInfosUser";
 
 const store = createStore(
     mainReducer,
@@ -24,9 +26,16 @@ const elem = (
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Registration} />
                 <Route exact path="/profile" component={Profile} />
+                <Route exact path="/editprofile" component={EditInfosUser} />
+                <Route
+                    path="/user/:id"
+                    render={props => (
+                        <Opp match={props.match} history={props.history} />
+                    )}
+                />
                 <Route
                     exact
-                    path="/register-service"
+                    path="/registration-service"
                     component={RegisterService}
                 />
                 <Route component={FirstPage} />

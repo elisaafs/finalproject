@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import axios from "./axios";
-import ProfilePicOPP from "./ProfilePicOPP";
 import translations from "./translations";
+import ProfilePicOpp from "./ProfilePicOpp";
+import Header from "./Header";
+import { connect } from "react-redux";
+
+const mapStateToProps = state => {
+    return {
+        language: state.language
+    };
+};
 
 class Opp extends Component {
     constructor(props) {
@@ -35,18 +43,21 @@ class Opp extends Component {
             profile_pic,
             country,
             language_speak,
+            language,
             city
         } = this.state;
-        const { language } = this.props;
         return (
             <div id="other-persons">
+                <Header />
                 <div className="big-wrapper">
                     <div className="wrapper-relative">
-                        <ProfilePicOPP
+                        <ProfilePicOpp
                             image={profile_pic}
                             first={first_name}
                             last={last_name}
                         />
+                        {first_name}
+                        {last_name}
                     </div>
                     <div className="wrapper-friendsof">
                         <div className="wrapper-bio">
@@ -65,4 +76,4 @@ class Opp extends Component {
     }
 }
 
-export default Opp;
+export default connect(mapStateToProps)(Opp);

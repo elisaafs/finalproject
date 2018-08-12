@@ -2,6 +2,7 @@ import axios from "../axios";
 
 export async function loadMyProfile() {
     const { data } = await axios.get("/user");
+    console.log("data", data);
     return {
         type: "LOAD_MY_PROFILE",
         id: data.id,

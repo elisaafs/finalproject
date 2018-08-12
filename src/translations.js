@@ -27,6 +27,13 @@ const translations = {
         es: "Sobre mí"
     },
 
+    REGISTERED_SERVICES: {
+        en: "Registered Services",
+        de: "Über mich",
+        pt: "Serviços Registrados",
+        es: "Servicios Registrados"
+    },
+
     REQUIRED_FIELDS: {
         en: "Please, fill the required fields.",
         de: "Anmelden",
@@ -84,9 +91,9 @@ const translations = {
     },
 
     EDIT_PROFILE: {
-        en: "Edit Profile",
+        en: "Update your profile",
         de: "Anmelden",
-        pt: "Editar Perfil",
+        pt: "Atualize seu perfil",
         es: "Editar Perfil"
     },
 

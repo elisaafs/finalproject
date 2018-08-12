@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "./axios";
 import translations from "./translations";
 import { connect } from "react-redux";
-
 import { loadMyProfile, setMyProfilePic } from "./actions/profile";
 
 const mapStateToProps = state => {
@@ -13,7 +12,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        loadMyProfile: dispatch(loadMyProfile()),
+        loadMyProfile: () => dispatch(loadMyProfile()),
         setProfilePic: url => dispatch(setMyProfilePic(url))
     };
 };

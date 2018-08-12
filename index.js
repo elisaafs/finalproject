@@ -44,7 +44,7 @@ app.use(express.static("public"));
 
 const signedOutRedirect = (req, res, next) => {
     if (!req.session.id) {
-        res.redirect("/welcome");
+        res.redirect("/");
     } else {
         next();
     }
@@ -62,6 +62,12 @@ app.use(function(req, res, next) {
 if (process.env.NODE_ENV != "production") {
     app.use(
         "/bundle.js",
+        require("http-proxy-middleware")({
+            target: "http://localhost:8081/"
+        })
+    );
+    app.use(
+        "/bundle.js.map",
         require("http-proxy-middleware")({
             target: "http://localhost:8081/"
         })
@@ -140,30 +146,54 @@ app.post("/login", function(req, res) {
     }
 });
 
+app.get("/user/:id.json", function(req, res) {
+    if (req.session && req.params && req.session.id == req.params.id) {
+        res.json({
+            redirect: "/"
+        });
+    } else {
+        db.getUserById(req.params.id).then(data => {
+            res.json({ data });
+        });
+    }
+});
+
+app.get("/otheruser/:userId", function(req, res) {
+    db.getUserById(req.params.userId).then(data => {
+        res.json(data);
+    });
+});
+
 app.post("/registration-service", (req, res) => {
     if (
         !req.body.name ||
         !req.body.contact ||
         !req.body.language ||
-        !req.body.categorie
+        !req.body.categorie ||
+        !req.body.city ||
+        !req.body.country
     ) {
         res.json({
             error: "Please, fill the required fields."
         });
     } else {
-        return db
-            .registerService(
-                req.body.name,
-                req.body.homepage,
-                req.body.address,
-                req.body.categorie,
-                req.body.description,
-                req.body.contact,
-                req.body.subCategorie,
-                req.body.language,
-                req.body.fluence
-            )
+        console.log("Here?");
+        db.registerService(
+            req.session.id,
+            req.body.name,
+            req.body.homepage,
+            req.body.address,
+            req.body.categorie,
+            req.body.description,
+            req.body.contact,
+            req.body.subCategorie,
+            req.body.language,
+            req.body.fluence,
+            req.body.city,
+            req.body.country
+        )
             .then(registeredService => {
+                console.log("why we are not getting here?");
                 res.json({
                     success: true,
                     service: registeredService
@@ -177,6 +207,59 @@ app.post("/registration-service", (req, res) => {
     }
 });
 
+function updateProfileInternal(newUserData, req, res) {
+    db.editUser(
+        newUserData.firstName,
+        newUserData.lastName,
+        newUserData.email,
+        newUserData.hashedPassword,
+        newUserData.city,
+        newUserData.country,
+        newUserData.languageSpeak,
+        req.session.id
+    ).then(() => {
+        res.json({
+            redirect: "/"
+        });
+    });
+}
+app.post("/uploadpictureservice", uploader.single("file"), s3.upload, function(
+    req,
+    res
+) {
+    db.updateServicePicture(
+        req.session.id,
+        config.s3Url + req.file.filename
+    ).then(pictureService => {
+        res.json({
+            success: true,
+            picture: pictureService
+        });
+    });
+});
+
+app.post("/profile/edit", (req, res) => {
+    db.getCompleteUserById(req.session.id).then(userData => {
+        const newUserData = {
+            firstName: req.body.firstName || userData.first_name,
+            lastName: req.body.lastName || userData.last_name,
+            email: req.body.email || userData.email,
+            hashedPassword: userData.hashed_password,
+            city: req.body.city || userData.city,
+            country: req.body.country || userData.country,
+            languageSpeak: req.body.languageSpeak || userData.language_speak
+        };
+        if (req.body.password != "") {
+            bc.hashPassword(req.body.password).then(hashedPassword => {
+                newUserData.hashedPassword = hashedPassword;
+                updateProfileInternal(newUserData, req, res);
+            });
+        } else {
+            updateProfileInternal(newUserData, req, res);
+        }
+    });
+});
+
 app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
     db.updateUserImage(req.session.id, config.s3Url + req.file.filename).then(
         imgUrl => {
@@ -188,7 +271,7 @@ app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
     );
 });
 
-app.get("/user", function(req, res) {
+app.get("/user", signedOutRedirect, function(req, res) {
     db.getUserById(req.session.id)
         .then(data => res.json(data))
         .catch(err => {

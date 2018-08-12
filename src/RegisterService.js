@@ -35,7 +35,7 @@ class RegisterService extends Component {
                     error: resp.data.error
                 });
             } else {
-                location.replace("/");
+                location.replace("/profile");
             }
         });
     }

@@ -22,7 +22,6 @@ class Bio extends Component {
                         {translations.PROFILE[language]}
                     </div>
                     <div className="wrapper-three">
-                        <i className="fas fa-ellipsis-h three"> </i>
                         <div className="big-wrapper-three">
                             <div className="wrapper-three-menu">
                                 <Link
@@ -36,7 +35,9 @@ class Bio extends Component {
                     </div>
                 </div>
 
-                <div className="about-me">About Me:</div>
+                <div className="about-me">
+                    {translations.ABOUT_ME[language]}:
+                </div>
                 {city}
                 {country}
                 {languageSpeak}
