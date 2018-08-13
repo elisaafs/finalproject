@@ -169,37 +169,40 @@ app.post("/registration-service", (req, res) => {
         !req.body.name ||
         !req.body.contact ||
         !req.body.language ||
-        !req.body.categorie ||
+        !req.body.category ||
         !req.body.city ||
         !req.body.country
     ) {
         res.json({
-            error: "Please, fill the required fields."
+            error: "requiredFields"
         });
     } else {
-        console.log("Here?");
         db.registerService(
             req.session.id,
             req.body.name,
-            req.body.homepage,
-            req.body.address,
-            req.body.categorie,
-            req.body.description,
+            req.body.category,
+            req.body.subcategory,
             req.body.contact,
-            req.body.subCategorie,
-            req.body.language,
-            req.body.fluence,
+            req.body.address,
             req.body.city,
-            req.body.country
+            req.body.country,
+            req.body.homepage,
+            req.body.description
         )
-            .then(registeredService => {
-                console.log("why we are not getting here?");
-                res.json({
-                    success: true,
-                    service: registeredService
+            .then(results => {
+                db.registerServiceLanguage(
+                    req.body.language,
+                    req.body.fluence,
+                    results.id
+                ).then(registeredService => {
+                    res.json({
+                        success: true,
+                        service: registeredService
+                    });
                 });
             })
             .catch(err => {
+                console.log(err);
                 res.json({
                     success: false
                 });
@@ -258,6 +261,11 @@ app.post("/profile/edit", (req, res) => {
             updateProfileInternal(newUserData, req, res);
         }
     });
+});
+
+app.get("/logout", (req, res) => {
+    req.session = null;
+    res.redirect("/");
 });
 
 app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {

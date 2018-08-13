@@ -4,6 +4,7 @@ import translations from "./translations";
 import ProfilePicOpp from "./ProfilePicOpp";
 import Header from "./Header";
 import { connect } from "react-redux";
+import { changeLanguage } from "./actions/language";
 
 const mapStateToProps = state => {
     return {
@@ -11,10 +12,18 @@ const mapStateToProps = state => {
     };
 };
 
+const mapDispatchToProps = dispatch => {
+    return {
+        changeLanguage: language => dispatch(changeLanguage(language))
+    };
+};
+
 class Opp extends Component {
     constructor(props) {
         super(props);
-        this.state = { id: this.props.match.params.id };
+        this.state = {
+            id: this.props.match.params.id
+        };
     }
 
     componentDidMount() {
@@ -37,15 +46,17 @@ class Opp extends Component {
             });
     }
     render() {
+        console.log("language", language);
         const {
             first_name,
             last_name,
             profile_pic,
             country,
             language_speak,
-            language,
             city
         } = this.state;
+        const { language } = this.props;
+
         return (
             <div id="other-persons">
                 <Header />
@@ -65,9 +76,17 @@ class Opp extends Component {
                                 {translations.PROFILE[language]}
                             </div>
                             <div className="linha" />
-                            <div className="bio-opp">{city}</div>
-                            <div className="bio-opp">{country}</div>
-                            <div className="bio-opp">{language_speak}</div>
+                            <div className="bio-opp">
+                                {" "}
+                                {translations.LIVES[language]}
+                                {city}
+                                {country}
+                            </div>
+
+                            <div className="bio-opp">
+                                {translations.LANGUAGES_SPEAK[language]}
+                                {language_speak}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -76,4 +95,7 @@ class Opp extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Opp);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Opp);

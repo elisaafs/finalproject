@@ -2,6 +2,7 @@ import React from "react";
 import ProfilePic from "./ProfilePic";
 import Uploader from "./Uploader";
 import Bio from "./Bio";
+import Header from "./Header";
 import { connect } from "react-redux";
 import translations from "./translations";
 import { Link } from "react-router-dom";
@@ -70,6 +71,7 @@ class Profile extends React.Component {
 
         return (
             <div id="profile">
+                <Header />
                 <div className="big-wrapper">
                     <Link to="/registration-service">
                         {translations.REGISTER_SERVICE[language]}

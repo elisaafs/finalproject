@@ -1,5 +1,3 @@
-import axios from "../axios";
-
 export async function editProfile(myUserId, myProfilePic, newProfile) {
     return {
         type: "LOAD_MY_PROFILE",

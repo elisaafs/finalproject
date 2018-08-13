@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "./axios";
-import { editProfile } from "./actions";
+import { editProfile } from "./actions/editInfosUser";
 import { connect } from "react-redux";
 import translations from "./translations";
 import { withRouter } from "react-router-dom";
@@ -13,7 +13,7 @@ const mapStateToProps = (state, props) => {
         lastName: state.me.lastName,
         city: state.me.city,
         country: state.me.country,
-        languageSpeak: state.me.language_speak,
+        languageSpeak: state.me.languageSpeak,
         email: state.me.email,
         id: state.me.id,
         profilePic: state.me.profilePic
@@ -140,7 +140,7 @@ class EditInfosUser extends Component {
                                     className="inputs-edit"
                                     onChange={this.handleChange}
                                     name="country"
-                                    value={this.state.food}
+                                    value={this.state.country}
                                     type="text"
                                 />
                                 <div className="down-input">
@@ -149,8 +149,8 @@ class EditInfosUser extends Component {
                                 <input
                                     className="inputs-edit"
                                     onChange={this.handleChange}
-                                    name="chef"
-                                    value={this.state.chef}
+                                    name="languageSpeak"
+                                    value={this.state.languageSpeak}
                                     type="text"
                                 />
                                 <div className="down-input">

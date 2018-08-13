@@ -58,6 +58,9 @@ function Header({
                         first={firstName}
                         last={lastName}
                     />
+                    <a className="menu-arrow" href="/logout">
+                        {translations.LOGOUT_BUTTON[language]}
+                    </a>
                 </div>
             )}
 

@@ -38,8 +38,10 @@ class Bio extends Component {
                 <div className="about-me">
                     {translations.ABOUT_ME[language]}:
                 </div>
+                {translations.LIVES[language]}
                 {city}
                 {country}
+                {translations.LANGUAGES_I_SPEAK[language]}
                 {languageSpeak}
             </div>
         );

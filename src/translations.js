@@ -13,6 +13,41 @@ const translations = {
         es: "Guardar"
     },
 
+    LIVES: {
+        en: "Lives in",
+        de: "Anmelden",
+        pt: "Mora em",
+        es: "Guardar"
+    },
+
+    LANGUAGES_SPEAK: {
+        en: "Speaks",
+        de: "Anmelden",
+        pt: "Fala",
+        es: "Habla"
+    },
+
+    FOOD: {
+        en: "Food",
+        de: "Anmelden",
+        pt: "Comida",
+        es: "Habla"
+    },
+
+    FOOD: {
+        en: "Food",
+        de: "Anmelden",
+        pt: "Comida",
+        es: "Habla"
+    },
+
+    PUBS: {
+        en: "Bar",
+        de: "Anmelden",
+        pt: "Bar",
+        es: "Habla"
+    },
+
     EDIT_SERVICES: {
         en: "Edit service informations",
         de: "Anmelden",
@@ -25,6 +60,104 @@ const translations = {
         de: "Über mich",
         pt: "Sobre mim",
         es: "Sobre mí"
+    },
+
+    COFFEE: {
+        en: "Coffee and Tea",
+        de: "Anmelden",
+        pt: "Café",
+        es: "Habla"
+    },
+
+    BAKERIES: {
+        en: "Bakerie",
+        de: "Anmelden",
+        pt: "Doceria",
+        es: "Habla"
+    },
+
+    DOCTOR: {
+        en: "Doctor",
+        de: "Anmelden",
+        pt: "Médico",
+        es: "Habla"
+    },
+
+    PSYCHOLOGY: {
+        en: "Psychologist",
+        de: "Anmelden",
+        pt: "Psicólogo",
+        es: "Habla"
+    },
+
+    ENGLISH: {
+        en: "English",
+        de: "Anmelden",
+        pt: "Inglês",
+        es: "Habla"
+    },
+
+    GERMAN: {
+        en: "German",
+        de: "Anmelden",
+        pt: "Alemão",
+        es: "Habla"
+    },
+
+    PORTUGUESE: {
+        en: "Portuguese",
+        de: "Anmelden",
+        pt: "Português",
+        es: "Habla"
+    },
+
+    SPANISH: {
+        en: "Spanish",
+        de: "Anmelden",
+        pt: "Espanhol",
+        es: "Habla"
+    },
+
+    FRENCH: {
+        en: "French",
+        de: "Anmelden",
+        pt: "Francês",
+        es: "Habla"
+    },
+
+    ITALIAN: {
+        en: "Italian",
+        de: "Anmelden",
+        pt: "Italiano",
+        es: "Habla"
+    },
+
+    RUSSIAN: {
+        en: "Russian",
+        de: "Anmelden",
+        pt: "Russo",
+        es: "Habla"
+    },
+
+    TURKISH: {
+        en: "Turkish",
+        de: "Anmelden",
+        pt: "Turco",
+        es: "Habla"
+    },
+
+    JAPONESE: {
+        en: "Japonese",
+        de: "Anmelden",
+        pt: "Japonês",
+        es: "Habla"
+    },
+
+    BEAUTY: {
+        en: "Beauty",
+        de: "Anmelden",
+        pt: "Beleza",
+        es: "Habla"
     },
 
     REGISTERED_SERVICES: {
@@ -104,11 +237,11 @@ const translations = {
         es: "Editar Perfil"
     },
 
-    LANGUAGES_SPEAK: {
-        en: "Languages I speak",
+    LANGUAGES_I_SPEAK: {
+        en: "I speak",
         de: "Anmelden",
-        pt: "Idiomas que eu falo",
-        es: "Editar Perfil"
+        pt: "Falo",
+        es: "Hablo"
     },
 
     PROFILE: {
@@ -245,10 +378,10 @@ const translations = {
     },
 
     RESTAURANTS: {
-        en: "Restaurants",
+        en: "Restaurant",
         de: "Anmelden",
-        pt: "Restaurantes",
-        es: "Restaurantes"
+        pt: "Restaurante",
+        es: "Restaurante"
     },
 
     SHOPPING: {
@@ -275,7 +408,7 @@ const translations = {
     PROFESSIONAL_SERVICES: {
         en: "Professional Services",
         de: "Anmelden",
-        pt: "Serviços de Casa",
+        pt: "Serviços Profissionais",
         es: "Servicios Profesionales"
     },
 
@@ -293,17 +426,10 @@ const translations = {
         es: "Vida Nocturna"
     },
 
-    BEAUTY: {
-        en: "Beauty and Spas",
-        de: "Anmelden",
-        pt: "Beleza e Spas",
-        es: "Belleza y Spas"
-    },
-
     AUTOMOTIVE: {
-        en: "Automotives",
+        en: "Automotives Services",
         de: "Anmelden",
-        pt: "Automóveis",
+        pt: "Serviços Automotivos",
         es: "Automóviles"
     },
 
@@ -343,10 +469,17 @@ const translations = {
     },
 
     HEALTH: {
-        en: "Health and Medical",
+        en: "Health",
         de: "Anmelden",
-        pt: "Saúde e Médicos",
-        es: "Salud y Médicos"
+        pt: "Saúde",
+        es: "Salud"
+    },
+
+    OTHER: {
+        en: "Other",
+        de: "Anmelden",
+        pt: "Outros",
+        es: "Otros"
     },
 
     REAL_STATE: {
@@ -360,6 +493,188 @@ const translations = {
         en: "Education",
         de: "Anmelden",
         pt: "Educação",
+        es: "Educación"
+    },
+
+    CHOOSE_CATEGORY: {
+        en: "Choose a Category",
+        de: "Anmelden",
+        pt: "Escolha uma categoria",
+        es: "Educación"
+    },
+
+    CHOOSE_LANGUAGE: {
+        en: "Choose a Language",
+        de: "Anmelden",
+        pt: "Escolha um idioma",
+        es: "Educación"
+    },
+
+    PROFICIENCY: {
+        en: "Proficiency",
+        de: "Anmelden",
+        pt: "Grau de Fluência",
+        es: "Educación"
+    },
+
+    BASIC: {
+        en: "Basic",
+        de: "Anmelden",
+        pt: "Básico",
+        es: "Educación"
+    },
+
+    INTERMEDIATE: {
+        en: "Intermediate",
+        de: "Anmelden",
+        pt: "Intermediário",
+        es: "Educación"
+    },
+
+    ALTERNATIVE: {
+        en: "Alternative Medicine",
+        de: "Anmelden",
+        pt: "Medicina Alternativa",
+        es: "Educación"
+    },
+
+    CHOOSE_SUB: {
+        en: "Choose a subcategory",
+        de: "Anmelden",
+        pt: "Escolha uma subcategoria",
+        es: "Educación"
+    },
+
+    HAIR: {
+        en: "Hair Stylist",
+        de: "Anmelden",
+        pt: "Cabeleireiro",
+        es: "Educación"
+    },
+
+    BARBER: {
+        en: "Barber",
+        de: "Anmelden",
+        pt: "Barbeiro",
+        es: "Educación"
+    },
+
+    WAXING: {
+        en: "Waxing",
+        de: "Anmelden",
+        pt: "Depilação",
+        es: "Educación"
+    },
+
+    FACE_CLEAN: {
+        en: "Skin Cleansing",
+        de: "Anmelden",
+        pt: "Limpeza de Pele",
+        es: "Educación"
+    },
+
+    DESIGN: {
+        en: "Eyebrow Design",
+        de: "Anmelden",
+        pt: "Design de Sobrancelha",
+        es: "Educación"
+    },
+
+    BRICKLAYER: {
+        en: "Bricklayer",
+        de: "Anmelden",
+        pt: "Pedreiro",
+        es: "Educación"
+    },
+
+    PAINTER: {
+        en: "Painter and Decorator",
+        de: "Anmelden",
+        pt: "Pintor",
+        es: "Educación"
+    },
+
+    PLUMBER: {
+        en: "Plumber",
+        de: "Anmelden",
+        pt: "Encanador",
+        es: "Educación"
+    },
+
+    CARPINTEIRO: {
+        en: "Carpenter",
+        de: "Anmelden",
+        pt: "Carpinteiro",
+        es: "Educación"
+    },
+
+    ELECTRICIAN: {
+        en: "Electrician",
+        de: "Anmelden",
+        pt: "Eletricista",
+        es: "Educación"
+    },
+
+    GARDENER: {
+        en: "Gardener",
+        de: "Anmelden",
+        pt: "Jardineiro",
+        es: "Educación"
+    },
+
+    CLEANING: {
+        en: "Cleaning",
+        de: "Anmelden",
+        pt: "Limpeza",
+        es: "Educación"
+    },
+
+    MASSAGE: {
+        en: "Massage and Body Treatments",
+        de: "Anmelden",
+        pt: "Massagem e Tratamentos Corporais",
+        es: "Educación"
+    },
+
+    MANICURE: {
+        en: "Manicure and Pedicure",
+        de: "Anmelden",
+        pt: "Manicure e Pedicure",
+        es: "Educación"
+    },
+
+    SPEECH: {
+        en: "Speech Therapy",
+        de: "Anmelden",
+        pt: "Terapia da Fala",
+        es: "Educación"
+    },
+
+    PHARMACEUTICAL: {
+        en: "Pharmaceutical",
+        de: "Anmelden",
+        pt: "Farmacêutico",
+        es: "Educación"
+    },
+
+    ADVANCED: {
+        en: "Fluent or native",
+        de: "Anmelden",
+        pt: "Fluente ou nativo",
+        es: "Educación"
+    },
+
+    PHYSIO: {
+        en: "Physiotherapist",
+        de: "Anmelden",
+        pt: "Fisioterapeuta",
+        es: "Educación"
+    },
+
+    DENTIST: {
+        en: "Dentist",
+        de: "Anmelden",
+        pt: "Dentista",
         es: "Educación"
     },
 

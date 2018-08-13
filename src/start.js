@@ -13,37 +13,48 @@ import Profile from "./Profile";
 import Opp from "./Opp";
 import RegisterService from "./RegisterService";
 import EditInfosUser from "./EditInfosUser";
+import { loadMyProfile } from "./actions/profile";
 
 const store = createStore(
     mainReducer,
     composeWithDevTools(applyMiddleware(reduxPromise))
 );
 
-const elem = (
-    <Provider store={store}>
-        <BrowserRouter>
-            <Switch>
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/signup" component={Registration} />
-                <Route exact path="/profile" component={Profile} />
-                <Route exact path="/editprofile" component={EditInfosUser} />
-                <Route
-                    path="/user/:id"
-                    render={props => (
-                        <Opp match={props.match} history={props.history} />
-                    )}
-                />
-                <Route
-                    exact
-                    path="/registration-service"
-                    component={RegisterService}
-                />
-                <Route component={FirstPage} />
-            </Switch>
-        </BrowserRouter>
-    </Provider>
-);
+loadMyProfile().then(loadProfileAction => {
+    if (loadProfileAction) {
+        store.dispatch(loadProfileAction);
+    }
 
-const mainElement = document.querySelector("main");
+    const elem = (
+        <Provider store={store}>
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/signup" component={Registration} />
+                    <Route exact path="/profile" component={Profile} />
+                    <Route
+                        exact
+                        path="/editprofile"
+                        component={EditInfosUser}
+                    />
+                    <Route
+                        path="/user/:id"
+                        render={props => (
+                            <Opp match={props.match} history={props.history} />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/registration-service"
+                        component={RegisterService}
+                    />
+                    <Route component={FirstPage} />
+                </Switch>
+            </BrowserRouter>
+        </Provider>
+    );
 
-ReactDOM.render(elem, mainElement);
+    const mainElement = document.querySelector("main");
+
+    ReactDOM.render(elem, mainElement);
+});

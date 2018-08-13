@@ -28,36 +28,46 @@ exports.getInfoUser = function(email) {
 };
 
 exports.registerService = function(
+    authorId,
     name,
-    homepage,
-    address,
-    categorie,
-    description,
+    category,
+    subcategory,
     contact,
+    address,
     city,
     country,
-    authorId,
-    subCategorie,
-    language,
-    fluence
+    homepage,
+    description
 ) {
     const q = `
-          INSERT INTO services (author_id, name, homepage, address, categorie, description, contact, subcategorie, language, fluence, city, country)
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
-          RETURNING *
+        INSERT INTO services (author_id, name, category, subcategory, contact, address, city, country, homepage, description)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+        RETURNING *
     `;
     const params = [
-        name,
         authorId,
-        homepage,
-        address,
-        categorie,
-        description,
+        name,
+        category,
+        subcategory,
         contact,
-        subCategorie,
-        language,
-        fluence
+        address,
+        city,
+        country,
+        homepage,
+        description
     ];
+    return db.query(q, params).then(results => {
+        return results.rows[0];
+    });
+};
+
+exports.registerServiceLanguage = function(language, fluence, serviceId) {
+    const q = `
+        INSERT INTO language (language, fluence, service_id)
+        VALUES ($1, $2, $3)
+        RETURNING *
+    `;
+    const params = [language, fluence, serviceId];
     return db.query(q, params).then(results => {
         return results.rows[0];
     });
@@ -104,8 +114,8 @@ exports.editUser = function(
     hashedPassword,
     city,
     country,
-    userId,
-    languageSpeak
+    languageSpeak,
+    userId
 ) {
     const q = `UPDATE users SET first_name = $1, last_name = $2, email = $3, hashed_password = $4, city = $6, country = $7, language_speak = $8 WHERE id = $5
     RETURNING id, first_name, last_name, email, city, country, language_speak;`;
@@ -115,9 +125,9 @@ exports.editUser = function(
         lastName,
         email,
         hashedPassword,
+        userId,
         city,
         country,
-        userId,
         languageSpeak
     ];
 
