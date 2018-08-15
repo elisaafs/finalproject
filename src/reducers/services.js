@@ -4,17 +4,18 @@ export function services(state = {}, action) {
             return {
                 id: action.id,
                 name: action.name,
+                placeId: action.place_id,
+                placeDescription: action.place_description,
                 contact: action.contact,
                 picture: action.picture,
                 address: action.address,
                 language: action.language,
-                categorie: action.categorie,
-                subcategorie: action.subcategorie,
+                category: action.category,
+                subcategory: action.subcategory,
                 fluence: action.fluence,
+                author: action.author_id,
                 homepage: action.homepage,
-                city: action.city,
-                description: action.description,
-                country: action.country
+                description: action.description
             };
 
         case "SET_SERVICE_PICTURE":

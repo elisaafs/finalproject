@@ -11,6 +11,13 @@ const uidSafe = require("uid-safe");
 const path = require("path");
 const s3 = require("./s3");
 const config = require("./config");
+const geodist = require("geodist");
+
+const {
+    getPlaceId,
+    autoCompletePlace,
+    getPlaceDetails
+} = require("./googlePlace");
 
 const diskStorage = multer.diskStorage({
     destination: function(req, file, callback) {
@@ -158,36 +165,47 @@ app.get("/user/:id.json", function(req, res) {
     }
 });
 
+app.get("/service/:id.json", function(req, res) {
+    db.getServiceById(req.params.id).then(data => {
+        console.log(data, "data");
+        res.json({ data });
+    });
+});
+
 app.get("/otheruser/:userId", function(req, res) {
     db.getUserById(req.params.userId).then(data => {
         res.json(data);
     });
 });
 
-app.post("/registration-service", (req, res) => {
+app.post("/registration-service", async (req, res) => {
     if (
         !req.body.name ||
-        !req.body.contact ||
         !req.body.language ||
         !req.body.category ||
-        !req.body.city ||
-        !req.body.country
+        !req.body.placeId ||
+        !req.body.placeDescription
     ) {
         res.json({
             error: "requiredFields"
         });
     } else {
+        const { longitude, latitude, address } = await getPlaceDetails(
+            req.body.placeId
+        );
         db.registerService(
             req.session.id,
             req.body.name,
             req.body.category,
             req.body.subcategory,
             req.body.contact,
-            req.body.address,
-            req.body.city,
-            req.body.country,
             req.body.homepage,
-            req.body.description
+            req.body.description,
+            longitude,
+            latitude,
+            address,
+            req.body.placeId,
+            req.body.placeDescription
         )
             .then(results => {
                 db.registerServiceLanguage(
@@ -279,6 +297,25 @@ app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
     );
 });
 
+app.get("/reviews/:serviceId", (req, res) => {
+    db.getReviewsByServiceId(req.params.serviceId)
+        .then(reviews => {
+            res.json(reviews);
+        })
+        .catch(err => console.log(err));
+});
+
+app.post("/review", (req, res) => {
+    db.addReview(req.body.userId, req.session.id, req.body.comment)
+        .then(result => {
+            res.json({
+                success: true,
+                review: result
+            });
+        })
+        .catch(err => console.log(err));
+});
+
 app.get("/user", signedOutRedirect, function(req, res) {
     db.getUserById(req.session.id)
         .then(data => res.json(data))
@@ -286,6 +323,53 @@ app.get("/user", signedOutRedirect, function(req, res) {
             console.log(err);
             res.sendStatus(500);
         });
+});
+
+app.get("/place", async (req, res) => {
+    const place = req.query.input;
+    const result = await getPlaceId(place);
+    res.json(result);
+});
+
+app.get("/place-complete", async (req, res) => {
+    const place = req.query.input;
+    const result = await autoCompletePlace(place);
+    res.json(result);
+});
+
+app.get("/search-service", async (req, res) => {
+    const { placeId, language, category, subcategory } = req.query;
+    if (!placeId || !language || !category) {
+        res.status = 400;
+        res.json({
+            error: "Please, fill all the fields."
+        });
+        return;
+    }
+
+    const { longitude, latitude } = await getPlaceDetails(placeId);
+    const results = await db.findServices(language, category, subcategory);
+
+    const resultsWithDistance = results.map(result => ({
+        ...result,
+        distance: geodist(
+            {
+                lat: parseFloat(result.latitude),
+                lon: parseFloat(result.longitude)
+            },
+            {
+                lat: latitude,
+                lon: longitude
+            },
+            { exact: true, unit: "km" }
+        )
+    }));
+
+    const sortedResults = resultsWithDistance.sort(
+        (a, b) => a.distance - b.distance
+    );
+
+    res.json(sortedResults.slice(0, 10));
 });
 
 app.get("*", function(req, res) {

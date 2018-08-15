@@ -5,14 +5,18 @@ import reduxPromise from "redux-promise";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { composeWithDevTools } from "redux-devtools-extension";
-import FirstPage from "./FirstPage";
+import FirstPage from "./components/FirstPage";
 import mainReducer from "./reducers/index";
-import Login from "./Login";
-import Registration from "./Registration";
-import Profile from "./Profile";
-import Opp from "./Opp";
-import RegisterService from "./RegisterService";
-import EditInfosUser from "./EditInfosUser";
+import Login from "./components/Login";
+import Registration from "./components/Registration";
+import Profile from "./components/Profile";
+import Opp from "./components/Opp";
+import Services from "./components/Services";
+import MyServices from "./components/MyServices";
+import RegisterService from "./components/RegisterService";
+import EditInfosUser from "./components/EditInfosUser";
+import ServiceSearch from "./components/ServiceSearch";
+import SearchResults from "./components/SearchResults";
 import { loadMyProfile } from "./actions/profile";
 
 const store = createStore(
@@ -37,16 +41,19 @@ loadMyProfile().then(loadProfileAction => {
                         path="/editprofile"
                         component={EditInfosUser}
                     />
-                    <Route
-                        path="/user/:id"
-                        render={props => (
-                            <Opp match={props.match} history={props.history} />
-                        )}
-                    />
+                    <Route path="/user/:id" component={Opp} />
+                    <Route path="/service/:id" component={Services} />
+                    <Route exact path="/myservices" component={MyServices} />
                     <Route
                         exact
                         path="/registration-service"
                         component={RegisterService}
+                    />
+                    <Route exact path="/search" component={ServiceSearch} />
+                    <Route
+                        exact
+                        path="/search-results"
+                        component={SearchResults}
                     />
                     <Route component={FirstPage} />
                 </Switch>

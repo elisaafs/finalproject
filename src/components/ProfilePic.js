@@ -1,6 +1,5 @@
 import React from "react";
-import axios from "./axios";
-import translations from "./translations";
+import translations from "../translations";
 
 function ProfilePic({ image, first, last, language, clickHandler }) {
     return (

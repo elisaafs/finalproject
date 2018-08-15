@@ -1,0 +1,183 @@
+html {
+    font-family: "Maven Pro", sans-serif;
+    margin: 0;
+}
+
+body,
+main {
+    margin: 0;
+    height: 100%;
+}
+
+.profile-pic {
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.links-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 180px;
+    margin-left: 120px;
+    height: 30px;
+}
+
+.name-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    font-size: 16px;
+    color: rgb(73, 82, 101);
+
+    text-decoration: none;
+    letter-spacing: 1.1px;
+    margin-left: 40px;
+}
+
+.language {
+    cursor: pointer;
+    color: #667086;
+    letter-spacing: 1.1px;
+    margin-left: 5px;
+    padding: 0.8em 0;
+}
+
+.language:hover {
+    color: rgb(238, 110, 108);
+}
+
+.link:hover {
+    color: rgb(238, 110, 108);
+}
+
+.buttons-header {
+    font-weight: 700;
+    text-decoration: none;
+    color: rgb(73, 82, 101);
+    padding: 0.8em 1.6em;
+    border: 1px solid rgb(238, 110, 108);
+    border-radius: 5px;
+}
+
+.button-logout {
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    color: rgb(73, 82, 101);
+    padding: 0.5em 1em;
+    border: 1px solid rgb(238, 110, 108);
+    border-radius: 5px;
+}
+
+.button-logout:hover {
+    background-color: rgb(238, 110, 108);
+    color: white;
+}
+
+.buttons-header:hover {
+    background-color: rgb(238, 110, 108);
+    color: white;
+}
+
+.last {
+    margin-right: 120px;
+    margin-left: 10px;
+}
+
+.last-language {
+    margin-right: 40px;
+}
+
+.wrapper-profilepic-header {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.names-header {
+    text-decoration: none;
+    color: rgb(73, 82, 101);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+.name-menu {
+    font-size: 12px;
+    padding: 4px;
+    color: #667086;
+    text-decoration: none;
+}
+
+.name-menu:hover {
+    background-color: rgb(238, 110, 108);
+    color: white;
+}
+
+.wrapper-cover {
+    width: 100%;
+    height: 500px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.cover {
+    object-fit: cover;
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+.we-speak {
+    position: absolute;
+    width: 300px;
+    text-align: left;
+    color: rgb(73, 82, 101);
+    font-size: 60px;
+    top: 225px;
+    left: 60px;
+}
+
+.cover-text {
+    position: relative;
+}
+
+span {
+    color: rgb(238, 110, 108);
+}
+
+.text-main {
+    width: 500px;
+    text-align: center;
+    line-height: 1.5;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(73, 82, 101);
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 20px;
+}

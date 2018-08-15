@@ -4,10 +4,10 @@ import Uploader from "./Uploader";
 import Bio from "./Bio";
 import Header from "./Header";
 import { connect } from "react-redux";
-import translations from "./translations";
+import translations from "../translations";
 import { Link } from "react-router-dom";
-import { changeLanguage } from "./actions/language";
-import { setMyProfilePic, loadMyProfile } from "./actions/profile";
+import { changeLanguage } from "../actions/language";
+import { setMyProfilePic, loadMyProfile } from "../actions/profile";
 
 const mapStateToProps = state => {
     return {
@@ -76,7 +76,7 @@ class Profile extends React.Component {
                     <Link to="/registration-service">
                         {translations.REGISTER_SERVICE[language]}
                     </Link>
-                    <Link to="/registered-services">
+                    <Link to="/myservices">
                         {translations.REGISTERED_SERVICES[language]}
                     </Link>
                     <div className="wrapper-relative">

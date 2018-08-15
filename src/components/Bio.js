@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import translations from "./translations";
+import translations from "../translations";
 
 class Bio extends Component {
     constructor(props) {

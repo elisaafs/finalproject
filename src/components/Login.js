@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import axios from "./axios";
-import translations from "./translations";
+import axios from "../axios";
+import translations from "../translations";
 import { connect } from "react-redux";
+import { loadMyProfile, setMyProfilePic } from "../actions/profile";
 
 const mapStateToProps = state => {
     return {
@@ -9,7 +10,14 @@ const mapStateToProps = state => {
     };
 };
 
-class Registration extends Component {
+const mapDispatchToProps = dispatch => {
+    return {
+        loadMyProfile: () => dispatch(loadMyProfile()),
+        setProfilePic: url => dispatch(setMyProfilePic(url))
+    };
+};
+
+class Login extends Component {
     constructor() {
         super();
 
@@ -29,13 +37,15 @@ class Registration extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        axios.post("/registration", this.state).then(resp => {
+
+        axios.post("/login", this.state).then(resp => {
             if (resp.data.error) {
                 this.setState({
                     error: resp.data.error
                 });
             } else {
-                location.replace("/");
+                this.props.loadMyProfile();
+                this.props.history.replace("/");
             }
         });
     }
@@ -43,24 +53,12 @@ class Registration extends Component {
     render() {
         const { language } = this.props;
         return (
-            <div className="registration">
+            <div className="login">
                 <div className="form-wrapper">
                     {this.state.error ? (
                         <div className="error">{this.state.error}</div>
                     ) : null}
                     <form className="form" onSubmit={this.handleSubmit}>
-                        <input
-                            onChange={this.handleChange}
-                            name="firstName"
-                            placeholder={translations.FIRSTNAME[language]}
-                            type="text"
-                        />
-                        <input
-                            onChange={this.handleChange}
-                            name="lastName"
-                            placeholder={translations.LASTNAME[language]}
-                            type="text"
-                        />
                         <input
                             onChange={this.handleChange}
                             name="email"
@@ -74,7 +72,7 @@ class Registration extends Component {
                             type="password"
                         />
                         <button type="submit">
-                            {translations.SIGNUP_BUTTON[language]}
+                            {translations.LOGIN_BUTTON[language]}
                         </button>
                     </form>
                 </div>
@@ -83,4 +81,7 @@ class Registration extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Registration);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Login);

@@ -33,15 +33,17 @@ exports.registerService = function(
     category,
     subcategory,
     contact,
-    address,
-    city,
-    country,
     homepage,
-    description
+    description,
+    longitude,
+    latitude,
+    address,
+    placeId,
+    placeDescription
 ) {
     const q = `
-        INSERT INTO services (author_id, name, category, subcategory, contact, address, city, country, homepage, description)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+        INSERT INTO services (author_id, name, category, subcategory, contact, homepage, description, longitude, latitude, address, place_id, place_description)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
         RETURNING *
     `;
     const params = [
@@ -50,11 +52,13 @@ exports.registerService = function(
         category,
         subcategory,
         contact,
-        address,
-        city,
-        country,
         homepage,
-        description
+        description,
+        longitude,
+        latitude,
+        address,
+        placeId,
+        placeDescription
     ];
     return db.query(q, params).then(results => {
         return results.rows[0];
@@ -107,6 +111,15 @@ exports.getUserById = function(userId) {
     });
 };
 
+exports.getServiceById = function(serviceId) {
+    const q = `SELECT * FROM services
+    LEFT JOIN language ON language.service_id = services.id WHERE services.id = $1;`;
+    const params = [serviceId];
+    return db.query(q, params).then(results => {
+        return results.rows[0];
+    });
+};
+
 exports.editUser = function(
     firstName,
     lastName,
@@ -141,5 +154,43 @@ exports.getCompleteUserById = function(userId) {
     const params = [userId];
     return db.query(q, params).then(results => {
         return results.rows[0];
+    });
+};
+
+exports.getReviewsByServiceId = function(serviceId) {
+    const query = `SELECT * FROM reviews WHERE service_id = $1 ORDER BY created_at DESC`;
+    const params = [serviceId];
+    return db.query(query, params).then(results => {
+        return results.rows;
+    });
+};
+
+exports.addReview = function(userId, authorId, title, comment, rate) {
+    const query = `
+          INSERT INTO reviews (service_id, author_id, comment, rate)
+          VALUES ($1, $2, $3, $4, $5)
+          RETURNING *
+    `;
+    const params = [userId, authorId, title, comment, rate];
+    return db.query(query, params).then(results => {
+        return results.rows[0];
+    });
+};
+
+exports.findServices = function(language, category, subcategory) {
+    let query, params;
+    if (subcategory) {
+        query = `SELECT * FROM services
+            LEFT JOIN language ON language.service_id = services.id
+            WHERE language = $1 AND category=$2 AND subcategory=$3;`;
+        params = [language, category, subcategory];
+    } else {
+        query = `SELECT * FROM services
+            LEFT JOIN language ON language.service_id = services.id
+            WHERE language = $1 AND category = $2;`;
+        params = [language, category];
+    }
+    return db.query(query, params).then(results => {
+        return results.rows;
     });
 };

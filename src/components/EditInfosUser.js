@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import axios from "./axios";
-import { editProfile } from "./actions/editInfosUser";
+import axios from "../axios";
+import { editProfile } from "../actions/editInfosUser";
 import { connect } from "react-redux";
-import translations from "./translations";
+import translations from "../translations";
 import { withRouter } from "react-router-dom";
 
 const mapStateToProps = (state, props) => {

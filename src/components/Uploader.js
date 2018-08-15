@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import axios from "./axios";
-import translations from "./translations";
+import axios from "../axios";
+import translations from "../translations";
 
 class Uploader extends Component {
     constructor(props) {

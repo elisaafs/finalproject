@@ -9,7 +9,7 @@ export function me(state = {}, action) {
                 email: action.email,
                 city: action.city,
                 languageSpeak: action.languageSpeak,
-                country: action.chef
+                country: action.country
             };
 
         case "SET_MY_PROFILE_PIC":

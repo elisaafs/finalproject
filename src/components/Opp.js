@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import axios from "./axios";
-import translations from "./translations";
+import axios from "../axios";
+import translations from "../translations";
 import ProfilePicOpp from "./ProfilePicOpp";
 import Header from "./Header";
 import { connect } from "react-redux";
-import { changeLanguage } from "./actions/language";
+import { changeLanguage } from "../actions/language";
 
 const mapStateToProps = state => {
     return {

@@ -13,6 +13,29 @@ const translations = {
         es: "Guardar"
     },
 
+    LOCATION: {
+        en: "Location",
+        de: "Ort",
+        pt: "Localização",
+        es: "Localizacion"
+    },
+
+    SEARCH: {
+        en: "Search",
+        de: "Suche",
+        pt: "Localização",
+        es: "Localizacion"
+    },
+
+    TEXT_MAIN: {
+        en:
+            "Find the services you need in any city of the world in the language of your preference.",
+        de: "Ort",
+        pt:
+            "Encontre os serviços que você precisa em qualquer canto do mundo no idioma de sua preferência.",
+        es: "Localizacion"
+    },
+
     LIVES: {
         en: "Lives in",
         de: "Anmelden",
@@ -34,10 +57,10 @@ const translations = {
         es: "Habla"
     },
 
-    FOOD: {
-        en: "Food",
+    NIGHT_CLUB: {
+        en: "Night Club",
         de: "Anmelden",
-        pt: "Comida",
+        pt: "Boate",
         es: "Habla"
     },
 
@@ -45,6 +68,34 @@ const translations = {
         en: "Bar",
         de: "Anmelden",
         pt: "Bar",
+        es: "Habla"
+    },
+
+    BARS: {
+        en: "Pub and Bar",
+        de: "Anmelden",
+        pt: "Pub e Bar",
+        es: "Habla"
+    },
+
+    KARAOKE: {
+        en: "Karaoke",
+        de: "Anmelden",
+        pt: "Karaokê",
+        es: "Habla"
+    },
+
+    SEX_CLUB: {
+        en: "Karaoke",
+        de: "Anmelden",
+        pt: "Clube de Sexo",
+        es: "Habla"
+    },
+
+    LOCKSMITH: {
+        en: "Locksmith",
+        de: "Anmelden",
+        pt: "Chaveiro",
         es: "Habla"
     },
 
@@ -132,6 +183,34 @@ const translations = {
         es: "Habla"
     },
 
+    CHINESE: {
+        en: "Chinese",
+        de: "Chinesisch",
+        pt: "Italiano",
+        es: "Habla"
+    },
+
+    DUTCH: {
+        en: "Dutch",
+        de: "Niederländisch",
+        pt: "Italiano",
+        es: "Habla"
+    },
+
+    POLISH: {
+        en: "Polish",
+        de: "Polnisch",
+        pt: "Italiano",
+        es: "Habla"
+    },
+
+    VIETNAMESE: {
+        en: "Vietnamese",
+        de: "Vietnamesisch",
+        pt: "Italiano",
+        es: "Habla"
+    },
+
     RUSSIAN: {
         en: "Russian",
         de: "Anmelden",
@@ -182,10 +261,17 @@ const translations = {
     },
 
     WE_SPEAK: {
-        en: "We speak your language.",
+        en: "We speak your",
         de: "Anmelden",
-        pt: "Nós falamos a sua língua.",
-        es: "Nosotros hablamos tu idioma."
+        pt: "Nós falamos a sua",
+        es: "Nosotros hablamos tu"
+    },
+
+    WE_SPEAK_II: {
+        en: "language",
+        de: "Anmelden",
+        pt: "língua",
+        es: "idioma"
     },
 
     RATTING: {
@@ -314,10 +400,24 @@ const translations = {
         es: "Contraseña"
     },
 
+    UPDATE_SERVICE: {
+        en: "Update service informations",
+        de: "Email",
+        pt: "Atualizar informações do serviço",
+        es: "Actualizar foto de perfil"
+    },
+
     UPDATE_PROFILE_PIC: {
         en: "Update profile picture",
         de: "Email",
         pt: "Atualizar foto de perfil",
+        es: "Actualizar foto de perfil"
+    },
+
+    UPDATE_PROFILE_PIC_SERVICE: {
+        en: "Update profile picture to the service",
+        de: "Email",
+        pt: "Atualizar foto de perfil do serviço",
         es: "Actualizar foto de perfil"
     },
 
@@ -434,9 +534,128 @@ const translations = {
     },
 
     PHOTOGRAPHY: {
-        en: "Photography",
+        en: "Photographer",
         de: "Anmelden",
-        pt: "Fotografia",
+        pt: "Fotógrafo",
+        es: "Fotografía"
+    },
+
+    TAILOR: {
+        en: "Tailor",
+        de: "Anmelden",
+        pt: "Alfaiate",
+        es: "Fotografía"
+    },
+
+    MECHANIC: {
+        en: "Mechanic",
+        de: "Anmelden",
+        pt: "Mecânico",
+        es: "Fotografía"
+    },
+
+    MEN_CLOTHING: {
+        en: "Men's Clothing",
+        de: "Anmelden",
+        pt: "Roupas Masculinas",
+        es: "Fotografía"
+    },
+
+    VET: {
+        en: "Vet",
+        de: "Anmelden",
+        pt: "Veterinário",
+        es: "Fotografía"
+    },
+
+    PET_SHOP: {
+        en: "Pet Shop",
+        de: "Anmelden",
+        pt: "Pet Shop",
+        es: "Fotografía"
+    },
+
+    GROOMING: {
+        en: "Grooming",
+        de: "Anmelden",
+        pt: "Banho e Tosa",
+        es: "Fotografía"
+    },
+
+    TRAINER: {
+        en: "Trainer",
+        de: "Anmelden",
+        pt: "Adestrador",
+        es: "Fotografía"
+    },
+
+    SHOES: {
+        en: "Shoes",
+        de: "Anmelden",
+        pt: "Sapatos",
+        es: "Fotografía"
+    },
+
+    PARTY_DRESS: {
+        en: "Party Clothes",
+        de: "Anmelden",
+        pt: "Roupas de Festa",
+        es: "Fotografía"
+    },
+
+    JEWELRY: {
+        en: "Jewelry",
+        de: "Anmelden",
+        pt: "Jóias",
+        es: "Fotografía"
+    },
+
+    FEMININE_C: {
+        en: "Feminine Clothes",
+        de: "Anmelden",
+        pt: "Roupas Femininas",
+        es: "Fotografía"
+    },
+
+    PERSONAL_TRAINER: {
+        en: "Personal Trainer",
+        de: "Personal Trainer",
+        pt: "Personal Trainer",
+        es: "Personal Trainer"
+    },
+
+    SPORT_ITEMS: {
+        en: "Sports Items",
+        de: "Anmelden",
+        pt: "Artigos Esportivos",
+        es: "Fotografía"
+    },
+
+    CHILDREN_C: {
+        en: "Children Clothes",
+        de: "Anmelden",
+        pt: "Roupas Infantis",
+        es: "Fotografía"
+    },
+
+    NURSE: {
+        en: "Nurse",
+        de: "Anmelden",
+        pt: "Enfermeiro",
+        es: "Fotografía"
+    },
+
+    COACH: {
+        en: "Coach",
+        de: "Anmelden",
+        pt: "Pofessor Particular",
+        es: "Fotografía"
+    },
+
+    LANGUAGE_TEACHER: {
+        en: "Language Teacher",
+        de: "Anmelden",
+        pt: "Professor de Idioma",
         es: "Fotografía"
     },
 
@@ -466,6 +685,41 @@ const translations = {
         de: "Email",
         pt: "Hotéis e Turismo",
         es: "Hoteles y Turismo"
+    },
+
+    HOTEL: {
+        en: "Hotel",
+        de: "Email",
+        pt: "Hotel",
+        es: "Hotel"
+    },
+
+    HOSTEL: {
+        en: "Hostel",
+        de: "Email",
+        pt: "Hostel",
+        es: "Hostel"
+    },
+
+    GUIDE: {
+        en: "Tourist Guide",
+        de: "Email",
+        pt: "Guia Turístico",
+        es: "Hostel"
+    },
+
+    TRANSFER: {
+        en: "Transfer",
+        de: "Email",
+        pt: "Transfer",
+        es: "Hostel"
+    },
+
+    TRAVEL_AGENCY: {
+        en: "Travel Agency",
+        de: "Email",
+        pt: "Agência Turística",
+        es: "Hostel"
     },
 
     HEALTH: {
@@ -654,6 +908,41 @@ const translations = {
         en: "Pharmaceutical",
         de: "Anmelden",
         pt: "Farmacêutico",
+        es: "Educación"
+    },
+
+    LAWYER: {
+        en: "Lawyer",
+        de: "Anmelden",
+        pt: "Advogado",
+        es: "Educación"
+    },
+
+    ARCHITECT: {
+        en: "Architect",
+        de: "Anmelden",
+        pt: "Arquiteto",
+        es: "Educación"
+    },
+
+    STATE_AGENT: {
+        en: "State Agent",
+        de: "Anmelden",
+        pt: "Corretor de Imóvel",
+        es: "Educación"
+    },
+
+    TRANSLATOR: {
+        en: "Translator and Interpreter",
+        de: "Anmelden",
+        pt: "Tradutor e Intérprete",
+        es: "Educación"
+    },
+
+    DESIGN_G: {
+        en: "Design",
+        de: "Anmelden",
+        pt: "Design",
         es: "Educación"
     },
 
