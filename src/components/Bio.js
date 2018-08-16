@@ -18,31 +18,21 @@ class Bio extends Component {
         return (
             <div className="wrapper-bio">
                 <div className="wrapper-intro-profile">
-                    <div className="profile-intro">
-                        {translations.PROFILE[language]}
-                    </div>
                     <div className="wrapper-three">
                         <div className="big-wrapper-three">
-                            <div className="wrapper-three-menu">
-                                <Link
-                                    className="menu-arrow a-name"
-                                    to={`/editprofile`}
-                                >
-                                    {translations.EDIT_PROFILE[language]}
-                                </Link>
-                            </div>
+                            <div className="wrapper-three-menu" />
                         </div>
                     </div>
                 </div>
-
                 <div className="about-me">
                     {translations.ABOUT_ME[language]}:
                 </div>
-                {translations.LIVES[language]}
-                {city}
-                {country}
-                {translations.LANGUAGES_I_SPEAK[language]}
-                {languageSpeak}
+                <div>
+                    {translations.I_LIVE[language]} {city}, {country}
+                </div>
+                <div>
+                    {translations.LANGUAGES_I_SPEAK[language]} {languageSpeak}
+                </div>
             </div>
         );
     }

@@ -13,6 +13,39 @@ const translations = {
         es: "Guardar"
     },
 
+    DISTANCE: {
+        en: "Distance:",
+        de: "Anmelden",
+        pt: "Distância:",
+        es: "Guardar"
+    },
+
+    WELCOME: {
+        en: "Welcome,",
+        de: "Anmelden",
+        pt: "Bem-vindo(a),",
+        es: "Guardar"
+    },
+    REGISTER_LANGUAGE: {
+        en: "Register a service in the language of your preference",
+        de: "Anmelden",
+        pt: "Registre um serviço no seu idioma de preferência",
+        es: "Guardar"
+    },
+
+    TATTOO: {
+        en: "Tattoo Artist",
+        de: "Anmelden",
+        pt: "Tatuador",
+        es: "Guardar"
+    },
+
+    SEARCH_SERVICE: {
+        en: "Search a service",
+        de: "Anmelden",
+        pt: "Busque um serviço",
+        es: "Guardar"
+    },
     LOCATION: {
         en: "Location",
         de: "Ort",
@@ -23,16 +56,21 @@ const translations = {
     SEARCH: {
         en: "Search",
         de: "Suche",
-        pt: "Localização",
+        pt: "Buscar",
+        es: "Buscar"
+    },
+
+    SEARCH_NOW: {
+        en: "Search Now",
+        de: "Suche",
+        pt: "Busque Agora",
         es: "Localizacion"
     },
 
     TEXT_MAIN: {
-        en:
-            "Find the services you need in any city of the world in the language of your preference.",
+        en: "The services you need in the language of your preference",
         de: "Ort",
-        pt:
-            "Encontre os serviços que você precisa em qualquer canto do mundo no idioma de sua preferência.",
+        pt: "Os serviços que você precisa no idioma de sua preferência",
         es: "Localizacion"
     },
 
@@ -261,10 +299,10 @@ const translations = {
     },
 
     WE_SPEAK: {
-        en: "We speak your",
+        en: "We speak your language",
         de: "Anmelden",
-        pt: "Nós falamos a sua",
-        es: "Nosotros hablamos tu"
+        pt: "Nós falamos a sua língua",
+        es: "Nosotros hablamos tu idioma"
     },
 
     WE_SPEAK_II: {
@@ -324,9 +362,9 @@ const translations = {
     },
 
     LANGUAGES_I_SPEAK: {
-        en: "I speak",
+        en: "My mother tongue is",
         de: "Anmelden",
-        pt: "Falo",
+        pt: "Minha língua materna é",
         es: "Hablo"
     },
 
@@ -337,10 +375,17 @@ const translations = {
         es: "Perfil"
     },
 
+    I_LIVE: {
+        en: "I live in",
+        de: "Anmelden",
+        pt: "Moro em",
+        es: "Perfil"
+    },
+
     REGISTER_SERVICE: {
         en: "Register a service",
         de: "Anmelden",
-        pt: "Registre um serviço.",
+        pt: "Registre um serviço",
         es: "Registrar un servicio"
     },
 
@@ -435,6 +480,13 @@ const translations = {
         es: "Idioma"
     },
 
+    LANGUAGE_P: {
+        en: "Language:",
+        de: "Email:",
+        pt: "Idioma:",
+        es: "Idioma:"
+    },
+
     SEND_BUTTON: {
         en: "Send",
         de: "Anmelden",
@@ -461,6 +513,13 @@ const translations = {
         de: "Anmelden",
         pt: "Categoria",
         es: "Categoría"
+    },
+
+    CATEGORIE_P: {
+        en: "Categorie:",
+        de: "Anmelden:",
+        pt: "Categoria:",
+        es: "Categoría:"
     },
 
     CONTACT: {

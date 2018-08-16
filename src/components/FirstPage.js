@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import Header from "./Header";
+import LogoBig from "./LogoBig";
 import { changeLanguage } from "../actions/language";
 import translations from "../translations";
+import { Link } from "react-router-dom";
 import { setMyProfilePic, loadMyProfile } from "../actions/profile";
 
 const mapStateToProps = state => {
@@ -19,20 +21,34 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-function FirstPage({ language }) {
-    return (
-        <div className="wrapper-main">
-            <Header />
-            <div className="wrapper-cover">
-                <img className="cover" src="1.jpg" />{" "}
+class FirstPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.backgroundImage = `${Math.floor(Math.random() * 25) + 1}.jpg`;
+    }
+
+    render() {
+        const { language } = this.props;
+        return (
+            <div
+                className="wrapper-main"
+                style={{ backgroundImage: `url(${this.backgroundImage})` }}
+            >
+                <Header />
+                <div className="logo-text">
+                    <div className="wrapper-lupa">
+                        <LogoBig />
+                        <div className="text-main">
+                            {translations.WE_SPEAK[language]}
+                        </div>
+                        <Link to="/search" className="search-now">
+                            {translations.SEARCH_NOW[language]}
+                        </Link>
+                    </div>
+                </div>
             </div>
-            <div className="we-speak">
-                {translations.WE_SPEAK[language]}{" "}
-                <span>{translations.WE_SPEAK_II[language]}</span>
-            </div>
-            <div className="text-main">{translations.TEXT_MAIN[language]}</div>
-        </div>
-    );
+        );
+    }
 }
 
 export default connect(

@@ -70,6 +70,7 @@ export const professionalSubcategories = {
     mechanic: translations.MECHANIC,
     tailor: translations.TAILOR,
     "personal trainer": translations.PERSONAL_TRAINER,
+    tattoo: translations.TATTOO,
     other: translations.OTHER
 };
 

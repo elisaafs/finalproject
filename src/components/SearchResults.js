@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-
+import Footer from "./Footer";
 import translations from "../translations";
-
+import HeaderInside from "./HeaderInside";
+import { Link } from "react-router-dom";
 import CategoryPicker from "./pickers/CategoryPicker";
 import LanguagePicker from "./pickers/LanguagePicker";
 import LocationPicker from "./pickers/LocationPicker";
@@ -30,7 +31,6 @@ class SearchResults extends React.Component {
     }
 
     render() {
-        console.log("results", this.props.searchResults);
         if (!this.props.searchResults) {
             return <Redirect to="/search" />;
         }
@@ -39,33 +39,58 @@ class SearchResults extends React.Component {
 
         const searchResultsComponents = this.props.searchResults.map(
             (searchResult, index) => (
-                <div key={index}>
-                    <div>{searchResult.name}</div>
-                    <div>{searchResult.address}</div>
-                    <div>{formatNumber(searchResult.distance)} km</div>
+                <div className="wrapper-results" key={index}>
                     <LocationPicker
                         language={language}
                         editable={false}
                         placeId={searchResult.place_id}
-                        placeDescription={searchResult.place_description}
                     />
-                    <CategoryPicker
-                        language={language}
-                        editable={false}
-                        selectedCategory={searchResult.category}
-                        selectedSubcategory={searchResult.subcategory}
-                    />
-                    <LanguagePicker
-                        language={language}
-                        editable={false}
-                        showFluency={true}
-                        selectedLanguage={searchResult.language}
-                        selectedFluency={searchResult.fluence}
-                    />
+
+                    <div className="wrapper-services-box">
+                        <Link
+                            class="link-result"
+                            to={`/service/${searchResult.id}`}
+                        >
+                            <div className="name-s">{searchResult.name}</div>
+                        </Link>{" "}
+                        <div className="cate-s">
+                            <CategoryPicker
+                                language={language}
+                                editable={false}
+                                selectedCategory={searchResult.category}
+                            />
+                        </div>
+                        <div className="address-s">
+                            <i className="fas fa-map-marker-alt pin" />
+                            {searchResult.address} ({formatNumber(
+                                searchResult.distance
+                            )}{" "}
+                            km)
+                        </div>
+                        <div className="language-results">
+                            <i className="fas fa-globe-americas globo" />
+                            <LanguagePicker
+                                language={language}
+                                editable={false}
+                                selectedLanguage={searchResult.language}
+                                selectedFluency={searchResult.fluence}
+                            />
+                        </div>
+                    </div>
                 </div>
             )
         );
-        return searchResultsComponents;
+        return (
+            <div>
+                <div className="results-page">
+                    <HeaderInside />
+                    <div className="grow-results">
+                        {searchResultsComponents}
+                    </div>
+                    <Footer />
+                </div>
+            </div>
+        );
     }
 }
 

@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import axios from "../axios";
 import translations from "../translations";
 import { connect } from "react-redux";
-
+import HeaderRegister from "./HeaderRegister";
+import Footer2 from "./Footer2";
 import CategoryPicker from "./pickers/CategoryPicker";
 import LanguagePicker from "./pickers/LanguagePicker";
 import LocationPicker from "./pickers/LocationPicker";
@@ -77,68 +78,91 @@ class RegisterService extends Component {
     render() {
         const { language } = this.props;
         return (
-            <div className="registration-service">
-                <div className="form-wrapper">
-                    {this.state.error ? (
-                        <div className="error">{this.state.error}</div>
-                    ) : null}
+            <div className="wrapper-main-2">
+                <HeaderRegister />
+                <div className="wrapper-grow">
+                    <div className="wrapper-search">
+                        <div className="text-search">
+                            {translations.REGISTER_LANGUAGE[language]}
+                        </div>
 
-                    <LocationPicker
-                        language={language}
-                        editable={true}
-                        placeId={this.state.placeId}
-                        placeDescription={this.state.placeDescription}
-                        changePlace={this.changeLocation}
-                    />
+                        {this.state.error ? (
+                            <div className="error">{this.state.error}</div>
+                        ) : null}
 
-                    <form className="form" onSubmit={this.handleSubmit}>
-                        <input
-                            onChange={this.handleChange}
-                            name="name"
-                            placeholder={translations.NAME[language]}
-                            type="text"
-                        />
-                        <CategoryPicker
-                            language={language}
-                            editable={true}
-                            selectedCategory={this.state.category}
-                            selectedSubcategory={this.state.subcategory}
-                            changeCategory={this.changeCategory}
-                            changeSubcategory={this.changeSubcategory}
-                        />
-                        <input
-                            onChange={this.handleChange}
-                            name="contact"
-                            placeholder={translations.CONTACT[language]}
-                            type="text"
-                        />
+                        <form
+                            className="form-register"
+                            onSubmit={this.handleSubmit}
+                        >
+                            <div className="coluna-1">
+                                <input
+                                    onChange={this.handleChange}
+                                    name="name"
+                                    placeholder={translations.NAME[language]}
+                                    type="text"
+                                    className="input-register first"
+                                />
+                                <input
+                                    onChange={this.handleChange}
+                                    name="contact"
+                                    placeholder={translations.CONTACT[language]}
+                                    type="text"
+                                    className="input-register"
+                                />
 
-                        <input
-                            onChange={this.handleChange}
-                            name="homepage"
-                            placeholder={translations.HOMEPAGE[language]}
-                            type="text"
-                        />
-                        <input
-                            onChange={this.handleChange}
-                            name="description"
-                            placeholder={translations.DESCRIPTION[language]}
-                            type="text"
-                        />
-                        <LanguagePicker
-                            language={language}
-                            editable={true}
-                            showFluency={true}
-                            selectedLanguage={this.state.language}
-                            selectedFluency={this.state.fluence}
-                            changeLanguage={this.changeLanguage}
-                            changeFluency={this.changeFluence}
-                        />
-                        <button type="submit">
-                            {translations.REGISTER_BUTTON[language]}
-                        </button>
-                    </form>
+                                <input
+                                    onChange={this.handleChange}
+                                    name="homepage"
+                                    placeholder={
+                                        translations.HOMEPAGE[language]
+                                    }
+                                    type="text"
+                                    className="input-register"
+                                />
+                                <input
+                                    onChange={this.handleChange}
+                                    name="description"
+                                    placeholder={
+                                        translations.DESCRIPTION[language]
+                                    }
+                                    type="text"
+                                    className="input-register"
+                                />
+                            </div>
+                            <div className="coluna2">
+                                <CategoryPicker
+                                    language={language}
+                                    editable={true}
+                                    selectedCategory={this.state.category}
+                                    selectedSubcategory={this.state.subcategory}
+                                    changeCategory={this.changeCategory}
+                                    changeSubcategory={this.changeSubcategory}
+                                />
+
+                                <LanguagePicker
+                                    language={language}
+                                    editable={true}
+                                    showFluency={true}
+                                    selectedLanguage={this.state.language}
+                                    selectedFluency={this.state.fluence}
+                                    changeLanguage={this.changeLanguage}
+                                    changeFluency={this.changeFluence}
+                                />
+                            </div>
+                            <LocationPicker
+                                language={language}
+                                editable={true}
+                                placeId={this.state.placeId}
+                                placeDescription={this.state.placeDescription}
+                                changePlace={this.changeLocation}
+                            />
+                            <button className="button-search" type="submit">
+                                {translations.REGISTER_BUTTON[language]}
+                            </button>
+                        </form>
+                    </div>
                 </div>
+                <Footer2 />
             </div>
         );
     }

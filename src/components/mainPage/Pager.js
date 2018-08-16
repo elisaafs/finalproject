@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import RandomPage from "../RandomPage";
+import FirstPage from "./FirstPage";
 import ServicesPage from "./ServicesPage";
 import PageSwitch from "./PageSwitch";
 
 class Pager extends React.Component {
     constructor(props) {
         super(props);
-        this.pages = [RandomPage, ServicesPage];
+        this.pages = [FirstPage, ServicesPage];
         this.switchHandler = this.switchHandler.bind(this);
         this.transitionEnd = this.transitionEnd.bind(this);
         this.loginHandler = this.loginHandler.bind(this);

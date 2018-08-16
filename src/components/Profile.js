@@ -2,7 +2,7 @@ import React from "react";
 import ProfilePic from "./ProfilePic";
 import Uploader from "./Uploader";
 import Bio from "./Bio";
-import Header from "./Header";
+import HeaderRegister from "./HeaderRegister";
 import { connect } from "react-redux";
 import translations from "../translations";
 import { Link } from "react-router-dom";
@@ -70,44 +70,55 @@ class Profile extends React.Component {
         } = this.props;
 
         return (
-            <div id="profile">
-                <Header />
-                <div className="big-wrapper">
-                    <Link to="/registration-service">
-                        {translations.REGISTER_SERVICE[language]}
-                    </Link>
-                    <Link to="/myservices">
-                        {translations.REGISTERED_SERVICES[language]}
-                    </Link>
-                    <div className="wrapper-relative">
-                        <ProfilePic
-                            image={profilePicture}
-                            first={firstName}
-                            last={lastName}
-                            language={language}
-                            clickHandler={this.showUploader}
-                        />
-                    </div>
-                    {firstName}
-                    {lastName}
+            <div className="search-page">
+                <HeaderRegister />
+                <div className="search-page-down">
+                    <div className="wrapper-search">
+                        <div className="text-search">
+                            {firstName} {lastName}
+                        </div>
+                        <div className="links-profile">
+                            <Link
+                                className="register-profile"
+                                to="/registration-service"
+                            >
+                                {translations.REGISTER_SERVICE[language]}
+                            </Link>
+                            <Link className="services-profile" to="/myservices">
+                                {translations.REGISTERED_SERVICES[language]}
+                            </Link>
+                            <Link className="edit-profile" to="/editprofile">
+                                {translations.EDIT_PROFILE[language]}
+                            </Link>
+                        </div>
 
-                    <div className="bio-wallpost-wrapper">
-                        <Bio
-                            city={city}
-                            country={country}
-                            languageSpeak={languageSpeak}
+                        <div className="wrapper-profile-pic">
+                            <ProfilePic
+                                image={profilePicture}
+                                first={firstName}
+                                last={lastName}
+                                language={language}
+                                clickHandler={this.showUploader}
+                            />
+                            <div className="bio-wallpost-wrapper">
+                                <Bio
+                                    city={city}
+                                    country={country}
+                                    languageSpeak={languageSpeak}
+                                    language={language}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    {this.state.uploaderIsVisible && (
+                        <Uploader
+                            setImage={this.setImage}
+                            closeUploader={this.closeUploader}
                             language={language}
                         />
-                    </div>
+                    )}
                 </div>
-
-                {this.state.uploaderIsVisible && (
-                    <Uploader
-                        setImage={this.setImage}
-                        closeUploader={this.closeUploader}
-                        language={language}
-                    />
-                )}
             </div>
         );
     }

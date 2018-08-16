@@ -35,18 +35,28 @@ export default class LocationPicker extends React.Component {
         return (
             <div>
                 {editable ? (
-                    <div>
+                    <div className="wrapper-location">
                         <input
                             onChange={this.changeInput}
                             name="location"
                             placeholder={translations.LOCATION[language]}
                             type="text"
+                            className="input-search"
                         />
-                        <div onClick={this.searchLocation}>Search</div>
+                        <div onClick={this.searchLocation}>
+                            <img
+                                className="lupa-search"
+                                src="Lupa-search.png"
+                            />
+                        </div>
                     </div>
                 ) : null}
-                {placeId ? <GoogleMap placeId={placeId} /> : null}
-                {placeDescription ? <div>{placeDescription}</div> : null}
+                {placeId ? (
+                    <GoogleMap className="google" placeId={placeId} />
+                ) : null}
+                {placeDescription ? (
+                    <div className="place-description">{placeDescription}</div>
+                ) : null}
             </div>
         );
     }

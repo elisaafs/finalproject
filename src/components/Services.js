@@ -2,8 +2,7 @@ import React from "react";
 import ProfilePicService from "./ProfilePicService";
 import ProfilePicServiceOther from "./ProfilePicServiceOther";
 import Uploader from "./Uploader";
-import Header from "./Header";
-import GoogleMap from "./GoogleMap";
+import HeaderInside from "./HeaderInside";
 import { connect } from "react-redux";
 import translations from "../translations";
 import axios from "../axios";
@@ -11,6 +10,9 @@ import { Link } from "react-router-dom";
 import { changeLanguage } from "../actions/language";
 import Reviews from "./Reviews";
 import { setServicePic } from "../actions/services";
+import CategoryPicker from "./pickers/CategoryPicker";
+import LanguagePicker from "./pickers/LanguagePicker";
+import LocationPicker from "./pickers/LocationPicker";
 
 const mapStateToProps = state => {
     return {
@@ -32,6 +34,7 @@ class Services extends React.Component {
         this.state = {};
         this.showUploader = this.showUploader.bind(this);
         this.setImage = this.setImage.bind(this);
+
         this.closeUploader = this.closeUploader.bind(this);
     }
 
@@ -98,46 +101,83 @@ class Services extends React.Component {
         const iAmTheAuthor = myId === author;
 
         return (
-            <div id="services">
-                <Header />
+            <div className="services-page">
+                <HeaderInside />
                 {iAmTheAuthor ? (
                     <div>
-                        <ProfilePicService
-                            image={picture}
-                            name={name}
-                            language={language}
-                            clickHandler={this.showUploader}
-                        />
-                        <div>
-                            <Link to="/editservices">
-                                {translations.EDIT_SERVICES[language]}
-                            </Link>
-                            <Link to="/myservices">
-                                Check your registered services
-                            </Link>
-                        </div>
-                        {this.state.uploaderIsVisible && (
-                            <Uploader
-                                setImage={this.setImage}
-                                closeUploader={this.closeUploader}
+                        <div className="wrapper-services">
+                            <span className="service-name">{name}</span>
+                            <CategoryPicker
                                 language={language}
+                                editable={false}
+                                selectedCategory={category}
+                                selectedSubcategory={subcategory}
                             />
-                        )}
+                            <div className="check-if-works">
+                                <ProfilePicService
+                                    image={picture}
+                                    name={name}
+                                    language={language}
+                                    clickHandler={this.showUploader}
+                                />
+                                <div>
+                                    <Link
+                                        className="edit-service"
+                                        to="/editservices"
+                                    >
+                                        {translations.EDIT_SERVICES[language]}
+                                    </Link>
+                                </div>
+                            </div>
+                            {this.state.uploaderIsVisible && (
+                                <Uploader
+                                    setImage={this.setImage}
+                                    closeUploader={this.closeUploader}
+                                    language={language}
+                                />
+                            )}
+
+                            <LocationPicker
+                                language={language}
+                                editable={false}
+                                placeId={placeId}
+                                placeDescription={placeDescription}
+                            />
+
+                            <div className="places">
+                                <span className="place-results">{contact}</span>
+                                <span className="place-results">
+                                    {homepage}
+                                </span>
+                                <span className="place-results">
+                                    {description}
+                                </span>
+                                <span className="place-results">
+                                    {languageService}
+                                </span>
+                                <span className="place-results">{fluence}</span>
+                            </div>
+
+                            {id ? <Reviews id={id} /> : null}
+                        </div>
                     </div>
                 ) : (
-                    <ProfilePicServiceOther image={picture} name={name} />
+                    <div className="wrapper-services">
+                        <ProfilePicServiceOther image={picture} name={name} />
+                        {name}
+                        <LanguagePicker
+                            language={language}
+                            editable={false}
+                            showFluency={true}
+                            selectedLanguage={languageService}
+                            selectedFluency={fluence}
+                        />
+                        {contact}
+                        {homepage}
+                        {description}
+                        {id ? <Reviews id={id} /> : null}
+                    </div>
                 )}
-                <GoogleMap placeId={placeId} />
-                {name}
-                {category}
-                {subcategory}
-                {contact}
-                {placeDescription}
-                {homepage}
-                {description}
-                {languageService}
-                {fluence}
-                {id ? <Reviews id={id} /> : null}
             </div>
         );
     }

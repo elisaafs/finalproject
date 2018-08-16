@@ -3,7 +3,7 @@ import translations from "../translations";
 
 function ProfilePicService({ image, name, language, clickHandler }) {
     return (
-        <div className="img-wrapper">
+        <div className="img-wrapper-service">
             <img
                 className="profile-pic-service"
                 src={image}

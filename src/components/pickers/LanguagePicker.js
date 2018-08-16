@@ -19,7 +19,7 @@ export default function LanguagePicker({
                 options={languages}
                 currentOption={selectedLanguage}
                 changeOption={changeLanguage}
-            />
+            />{" "}
             {showFluency ? (
                 <Select
                     language={language}

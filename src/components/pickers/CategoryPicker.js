@@ -52,7 +52,7 @@ export default function CategoryPicker({
                 options={categories}
                 currentOption={selectedCategory}
                 changeOption={changeCategoryAndResetSub}
-            />
+            />{" "}
             {subcategories ? (
                 <Select
                     language={language}

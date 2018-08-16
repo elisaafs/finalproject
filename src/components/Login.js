@@ -3,6 +3,7 @@ import axios from "../axios";
 import translations from "../translations";
 import { connect } from "react-redux";
 import { loadMyProfile, setMyProfilePic } from "../actions/profile";
+import LogoMedium from "./LogoMedium";
 
 const mapStateToProps = state => {
     return {
@@ -53,28 +54,33 @@ class Login extends Component {
     render() {
         const { language } = this.props;
         return (
-            <div className="login">
-                <div className="form-wrapper">
-                    {this.state.error ? (
-                        <div className="error">{this.state.error}</div>
-                    ) : null}
-                    <form className="form" onSubmit={this.handleSubmit}>
-                        <input
-                            onChange={this.handleChange}
-                            name="email"
-                            placeholder="Email"
-                            type="text"
-                        />
-                        <input
-                            onChange={this.handleChange}
-                            name="password"
-                            placeholder={translations.PASSWORD[language]}
-                            type="password"
-                        />
-                        <button type="submit">
-                            {translations.LOGIN_BUTTON[language]}
-                        </button>
-                    </form>
+            <div className="login-page">
+                <div className="wrapper-logo">
+                    <LogoMedium />
+                </div>
+                <div className="login-wrapper">
+                    <div className="form-wrapper">
+                        {this.state.error ? (
+                            <div className="error">{this.state.error}</div>
+                        ) : null}
+                        <form className="form" onSubmit={this.handleSubmit}>
+                            <input
+                                onChange={this.handleChange}
+                                name="email"
+                                placeholder="Email"
+                                type="text"
+                            />
+                            <input
+                                onChange={this.handleChange}
+                                name="password"
+                                placeholder={translations.PASSWORD[language]}
+                                type="password"
+                            />
+                            <button type="submit">
+                                {translations.LOGIN_BUTTON[language]}
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         );
