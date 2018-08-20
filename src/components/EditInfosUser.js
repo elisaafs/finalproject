@@ -3,6 +3,8 @@ import axios from "../axios";
 import { editProfile } from "../actions/editInfosUser";
 import { connect } from "react-redux";
 import translations from "../translations";
+import Footer2 from "./Footer2";
+import HeaderRegister from "./HeaderRegister";
 import { withRouter } from "react-router-dom";
 
 const mapStateToProps = (state, props) => {
@@ -63,7 +65,7 @@ class EditInfosUser extends Component {
                         this.state
                     )
                 );
-                this.props.history.push("/");
+                this.props.history.push("/myservices");
             }
         });
     }
@@ -71,102 +73,74 @@ class EditInfosUser extends Component {
     render() {
         const { language } = this.props;
         return (
-            <div className="registration">
-                <div className="form-wrapper2">
-                    <div className="form-wrapper">
-                        {this.state.error ? (
-                            <div>{this.state.error}</div>
-                        ) : null}
-                        <div className="edit-profile">
-                            {translations.EDIT_PROFILE[language]}
-                        </div>
-                        <form className="form-edit">
-                            <div className="wrapper-email">
-                                <input
-                                    className="inputs-edit"
-                                    onChange={this.handleChange}
-                                    name="firstName"
-                                    value={this.state.firstName}
-                                    type="text"
-                                />
-                                <div className="down-input">
-                                    {translations.FIRSTNAME[language]}
-                                </div>
-                                <input
-                                    className="inputs-edit"
-                                    onChange={this.handleChange}
-                                    name="lastName"
-                                    value={this.state.lastName}
-                                    type="text"
-                                />
-                                <div className="down-input">
-                                    {translations.LASTNAME[language]}
-                                </div>
-                                <input
-                                    className="inputs-edit"
-                                    onChange={this.handleChange}
-                                    name="email"
-                                    value={this.state.email}
-                                    type="text"
-                                />
-                                <div className="down-input">Email</div>
+            <div className="edit-page">
+                <HeaderRegister />
+                <div className="grow-edit">
+                    <div className="form-wrapper2">
+                        <div className="form-wrapper">
+                            {this.state.error ? (
+                                <div>{this.state.error}</div>
+                            ) : null}
+                            <div className="text-search2">
+                                {translations.EDIT_PROFILE[language]}
+                            </div>
+                            <form className="form-edit">
+                                <div className="wrapper-email">
+                                    <input
+                                        className="input-search"
+                                        onChange={this.handleChange}
+                                        name="firstName"
+                                        value={this.state.firstName}
+                                        type="text"
+                                    />
+                                    <div className="down-input">
+                                        {translations.FIRSTNAME[language]}
+                                    </div>
+                                    <input
+                                        className="input-search"
+                                        onChange={this.handleChange}
+                                        name="lastName"
+                                        value={this.state.lastName}
+                                        type="text"
+                                    />
+                                    <div className="down-input">
+                                        {translations.LASTNAME[language]}
+                                    </div>
+                                    <input
+                                        className="input-search"
+                                        onChange={this.handleChange}
+                                        name="email"
+                                        value={this.state.email}
+                                        type="text"
+                                    />
+                                    <div className="down-input">Email</div>
 
-                                <input
-                                    className="inputs-edit"
-                                    onChange={this.handleChange}
-                                    name="password"
-                                    placeholder={
-                                        translations.NEW_PASSWORD[language]
-                                    }
-                                    value={this.state.password}
-                                    type="password"
-                                />
-                                <div className="down-input">
-                                    {translations.PASSWORD[language]}
+                                    <input
+                                        className="input-search"
+                                        onChange={this.handleChange}
+                                        name="password"
+                                        placeholder={
+                                            translations.NEW_PASSWORD[language]
+                                        }
+                                        value={this.state.password}
+                                        type="password"
+                                    />
+                                    <div className="down-input">
+                                        {translations.PASSWORD[language]}
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="wrapper-editprof">
-                                <input
-                                    className="inputs-edit"
-                                    onChange={this.handleChange}
-                                    name="city"
-                                    value={this.state.city}
-                                    type="text"
-                                />
-                                <div className="down-input">
-                                    {translations.CITY[language]}
-                                </div>
-                                <input
-                                    className="inputs-edit"
-                                    onChange={this.handleChange}
-                                    name="country"
-                                    value={this.state.country}
-                                    type="text"
-                                />
-                                <div className="down-input">
-                                    {translations.COUNTRY[language]}
-                                </div>
-                                <input
-                                    className="inputs-edit"
-                                    onChange={this.handleChange}
-                                    name="languageSpeak"
-                                    value={this.state.languageSpeak}
-                                    type="text"
-                                />
-                                <div className="down-input">
-                                    {translations.LANGUAGES_SPEAK[language]}
-                                </div>
-                            </div>
-                        </form>
-                        <button
-                            className="editbutton"
-                            type="submit"
-                            onClick={this.handleSubmit}
-                        >
-                            {translations.SAVE_BUTTON[language]}
-                        </button>
+                            </form>
+                            <button
+                                className="button-search"
+                                type="submit"
+                                onClick={this.handleSubmit}
+                            >
+                                {translations.SAVE_BUTTON[language]}
+                            </button>
+                        </div>
                     </div>
                 </div>
+                <Footer2 />
             </div>
         );
     }

@@ -39,6 +39,7 @@ export const beautySubcategories = {
     none: translations.CHOOSE_SUB,
     "hair stylist": translations.HAIR,
     barber: translations.BARBER,
+    "make up": translations.MAKE_UP,
     waxing: translations.WAXING,
     manicure: translations.MANICURE,
     design: translations.DESIGN,
@@ -76,7 +77,7 @@ export const professionalSubcategories = {
 
 export const educationSubcategories = {
     none: translations.CHOOSE_SUB,
-    tutor: translations.TUTOR,
+    tutor: translations.COACH,
     "language teacher": translations.LANGUAGE_TEACHER,
     other: translations.OTHER
 };

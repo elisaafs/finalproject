@@ -86,7 +86,7 @@ exports.updateServicePicture = function(serviceId, servicePic) {
         `;
     const params = [serviceId, servicePic];
     return db.query(q, params).then(results => {
-        return results.rows[0].cover_pic;
+        return results.rows[0].picture;
     });
 };
 
@@ -117,6 +117,16 @@ exports.getServiceById = function(serviceId) {
     const params = [serviceId];
     return db.query(q, params).then(results => {
         return results.rows[0];
+    });
+};
+
+exports.getServicesByAuthorId = function(authorId) {
+    console.log(authorId);
+    const q = `SELECT * FROM services
+    LEFT JOIN language ON language.service_id = services.id WHERE services.author_id = $1;`;
+    const params = [authorId];
+    return db.query(q, params).then(results => {
+        return results.rows;
     });
 };
 
@@ -165,13 +175,13 @@ exports.getReviewsByServiceId = function(serviceId) {
     });
 };
 
-exports.addReview = function(userId, authorId, title, comment, rate) {
+exports.addReview = function(serviceId, authorId, title, comment) {
     const query = `
-          INSERT INTO reviews (service_id, author_id, comment, rate)
-          VALUES ($1, $2, $3, $4, $5)
+          INSERT INTO reviews (service_id, author_id, title, comment)
+          VALUES ($1, $2, $3, $4)
           RETURNING *
     `;
-    const params = [userId, authorId, title, comment, rate];
+    const params = [serviceId, authorId, title, comment];
     return db.query(query, params).then(results => {
         return results.rows[0];
     });

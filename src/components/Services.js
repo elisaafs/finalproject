@@ -1,18 +1,18 @@
 import React from "react";
 import ProfilePicService from "./ProfilePicService";
 import ProfilePicServiceOther from "./ProfilePicServiceOther";
-import Uploader from "./Uploader";
-import HeaderInside from "./HeaderInside";
+import UploaderService from "./UploaderService";
+import HeaderRegister from "./HeaderRegister";
 import { connect } from "react-redux";
 import translations from "../translations";
 import axios from "../axios";
 import { Link } from "react-router-dom";
 import { changeLanguage } from "../actions/language";
 import Reviews from "./Reviews";
-import { setServicePic } from "../actions/services";
 import CategoryPicker from "./pickers/CategoryPicker";
-import LanguagePicker from "./pickers/LanguagePicker";
+import Footer2 from "./Footer2";
 import LocationPicker from "./pickers/LocationPicker";
+import LanguagePicker from "./pickers/LanguagePicker";
 
 const mapStateToProps = state => {
     return {
@@ -23,8 +23,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        changeLanguage: language => dispatch(changeLanguage(language)),
-        setServicePic: url => dispatch(setServicePic(url))
+        changeLanguage: language => dispatch(changeLanguage(language))
     };
 };
 
@@ -54,7 +53,7 @@ class Services extends React.Component {
         this.setState({
             uploaderIsVisible: false
         });
-        this.props.setServicePic(url);
+        this.setState({ picture: url });
     }
 
     componentDidMount() {
@@ -102,82 +101,172 @@ class Services extends React.Component {
 
         return (
             <div className="services-page">
-                <HeaderInside />
+                <HeaderRegister />
                 {iAmTheAuthor ? (
-                    <div>
+                    <div className="grow-service">
                         <div className="wrapper-services">
                             <span className="service-name">{name}</span>
-                            <CategoryPicker
-                                language={language}
-                                editable={false}
-                                selectedCategory={category}
-                                selectedSubcategory={subcategory}
-                            />
-                            <div className="check-if-works">
-                                <ProfilePicService
-                                    image={picture}
-                                    name={name}
+                            <div className="service-categorie">
+                                <CategoryPicker
                                     language={language}
-                                    clickHandler={this.showUploader}
+                                    editable={false}
+                                    selectedCategory={category}
                                 />
-                                <div>
-                                    <Link
-                                        className="edit-service"
-                                        to="/editservices"
-                                    >
-                                        {translations.EDIT_SERVICES[language]}
-                                    </Link>
+                            </div>
+                            <div className="wrapper-parts">
+                                <div className="parte1">
+                                    <div>
+                                        <div className="check-if-works">
+                                            <ProfilePicService
+                                                image={picture}
+                                                name={name}
+                                                language={language}
+                                                clickHandler={this.showUploader}
+                                            />
+                                            <div>
+                                                <Link
+                                                    className="edit-service"
+                                                    to="/editservices"
+                                                >
+                                                    {
+                                                        translations
+                                                            .EDIT_SERVICES[
+                                                            language
+                                                        ]
+                                                    }
+                                                </Link>
+                                            </div>
+                                        </div>
+                                        {this.state.uploaderIsVisible && (
+                                            <UploaderService
+                                                setImage={this.setImage}
+                                                closeUploader={
+                                                    this.closeUploader
+                                                }
+                                                language={language}
+                                                serviceId={id}
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="parte1-1">
+                                        <div className="places">
+                                            <span className="place-results extra">
+                                                {description}
+                                            </span>
+                                            <span className="place-results">
+                                                {contact}
+                                            </span>
+                                            <span className="place-results">
+                                                <a href="{homepage}">
+                                                    {homepage}
+                                                </a>
+                                            </span>
+
+                                            <span className="place-results">
+                                                <i className="fas fa-globe-americas pins" />
+                                                <LanguagePicker
+                                                    language={language}
+                                                    editable={false}
+                                                    showFluency={true}
+                                                    selectedLanguage={
+                                                        languageService
+                                                    }
+                                                    selectedFluency={fluence}
+                                                />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="parte2">
+                                    <LocationPicker
+                                        language={language}
+                                        editable={false}
+                                        placeId={placeId}
+                                    />
+                                    <div className="pindescription">
+                                        <i className="fas fa-map-pin pin" />{" "}
+                                        {placeDescription}
+                                    </div>
                                 </div>
                             </div>
-                            {this.state.uploaderIsVisible && (
-                                <Uploader
-                                    setImage={this.setImage}
-                                    closeUploader={this.closeUploader}
-                                    language={language}
-                                />
-                            )}
-
-                            <LocationPicker
-                                language={language}
-                                editable={false}
-                                placeId={placeId}
-                                placeDescription={placeDescription}
-                            />
-
-                            <div className="places">
-                                <span className="place-results">{contact}</span>
-                                <span className="place-results">
-                                    {homepage}
-                                </span>
-                                <span className="place-results">
-                                    {description}
-                                </span>
-                                <span className="place-results">
-                                    {languageService}
-                                </span>
-                                <span className="place-results">{fluence}</span>
-                            </div>
-
-                            {id ? <Reviews id={id} /> : null}
                         </div>
+                        {id ? <Reviews id={id} /> : null}
                     </div>
                 ) : (
-                    <div className="wrapper-services">
-                        <ProfilePicServiceOther image={picture} name={name} />
-                        {name}
-                        <LanguagePicker
-                            language={language}
-                            editable={false}
-                            showFluency={true}
-                            selectedLanguage={languageService}
-                            selectedFluency={fluence}
-                        />
-                        {contact}
-                        {homepage}
-                        {description}
+                    <div className="grow-service">
+                        <div className="wrapper-services">
+                            <span className="service-name">{name}</span>
+                            <div className="service-categorie">
+                                <CategoryPicker
+                                    language={language}
+                                    editable={false}
+                                    selectedCategory={category}
+                                />
+                            </div>
+                            <div className="wrapper-parts">
+                                <div className="parte1">
+                                    <div>
+                                        <div className="check-if-works">
+                                            <ProfilePicServiceOther
+                                                image={picture}
+                                                name={name}
+                                            />
+                                        </div>
+                                        {this.state.uploaderIsVisible && (
+                                            <UploaderService
+                                                setImage={this.setImage}
+                                                closeUploader={
+                                                    this.closeUploader
+                                                }
+                                                language={language}
+                                                serviceId={id}
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="parte1-1">
+                                        <div className="places">
+                                            <span className="place-results extra">
+                                                {description}
+                                            </span>
+                                            <span className="place-results">
+                                                {contact}
+                                            </span>
+                                            <span className="place-results">
+                                                {homepage}
+                                            </span>
+
+                                            <span className="place-results">
+                                                <i className="fas fa-globe-americas pins" />
+                                                <LanguagePicker
+                                                    language={language}
+                                                    editable={false}
+                                                    showFluency={true}
+                                                    selectedLanguage={
+                                                        languageService
+                                                    }
+                                                    selectedFluency={fluence}
+                                                />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="parte2">
+                                    <LocationPicker
+                                        language={language}
+                                        editable={false}
+                                        placeId={placeId}
+                                    />
+                                    <div className="pindescription">
+                                        <i className="fas fa-map-marker-alt pin" />{" "}
+                                        {placeDescription}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         {id ? <Reviews id={id} /> : null}
                     </div>
                 )}
+                <Footer2 />
             </div>
         );
     }

@@ -12,23 +12,28 @@ export default function LanguagePicker({
     changeFluency
 }) {
     return (
-        <div>
+        <div className="language-picker">
             <Select
                 language={language}
                 editable={editable}
                 options={languages}
                 currentOption={selectedLanguage}
                 changeOption={changeLanguage}
-            />{" "}
-            {showFluency ? (
-                <Select
-                    language={language}
-                    editable={editable}
-                    options={fluencies}
-                    currentOption={selectedFluency}
-                    changeOption={changeFluency}
-                />
-            ) : null}
+            />
+            {showFluency
+                ? [
+                      editable ? " " : " (",
+                      <Select
+                          key="select"
+                          language={language}
+                          editable={editable}
+                          options={fluencies}
+                          currentOption={selectedFluency}
+                          changeOption={changeFluency}
+                      />,
+                      editable ? null : ")"
+                  ]
+                : null}
         </div>
     );
 }

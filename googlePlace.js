@@ -28,6 +28,28 @@ exports.getPlaceId = async function(place) {
     return [];
 };
 
+exports.getPlaceIdByText = async function(text) {
+    const { data } = await axios.get(
+        `https://maps.googleapis.com/maps/api/place/textsearch/json`,
+        {
+            params: {
+                key: googleMapsApiKey,
+                query: text
+            }
+        }
+    );
+
+    console.log(data);
+    const result = data.results && data.results[0];
+    if (result) {
+        return {
+            place_id: result.place_id,
+            description: result.name
+        };
+    }
+    return null;
+};
+
 exports.autoCompletePlace = async function(place) {
     const { data } = await axios.get(
         `https://maps.googleapis.com/maps/api/place/autocomplete/json`,

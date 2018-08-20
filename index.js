@@ -16,7 +16,8 @@ const geodist = require("geodist");
 const {
     getPlaceId,
     autoCompletePlace,
-    getPlaceDetails
+    getPlaceDetails,
+    getPlaceIdByText
 } = require("./googlePlace");
 
 const diskStorage = multer.diskStorage({
@@ -113,7 +114,7 @@ app.post("/registration", (req, res) => {
                         });
                     });
             })
-            .catch(err => {
+            .catch(() => {
                 res.json({
                     error: "The email address already exists."
                 });
@@ -169,6 +170,13 @@ app.get("/service/:id.json", function(req, res) {
     db.getServiceById(req.params.id).then(data => {
         console.log(data, "data");
         res.json({ data });
+    });
+});
+
+app.get("/services", function(req, res) {
+    db.getServicesByAuthorId(req.session.id).then(data => {
+        console.log(data, "data");
+        res.json(data);
     });
 });
 
@@ -244,20 +252,6 @@ function updateProfileInternal(newUserData, req, res) {
         });
     });
 }
-app.post("/uploadpictureservice", uploader.single("file"), s3.upload, function(
-    req,
-    res
-) {
-    db.updateServicePicture(
-        req.session.id,
-        config.s3Url + req.file.filename
-    ).then(pictureService => {
-        res.json({
-            success: true,
-            picture: pictureService
-        });
-    });
-});
 
 app.post("/profile/edit", (req, res) => {
     db.getCompleteUserById(req.session.id).then(userData => {
@@ -297,6 +291,31 @@ app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
     );
 });
 
+app.post(
+    "/uploadpictureservice/:serviceId",
+    uploader.single("file"),
+    s3.upload,
+    function(req, res) {
+        db.getServiceById(req.params.serviceId)
+            .then(service => {
+                if (!service || service.author_id !== req.session.id) {
+                    res.sendStatus(401);
+                    return;
+                }
+                return db.updateServicePicture(
+                    req.params.serviceId,
+                    config.s3Url + req.file.filename
+                );
+            })
+            .then(pictureService => {
+                res.json({
+                    success: true,
+                    url: pictureService
+                });
+            });
+    }
+);
+
 app.get("/reviews/:serviceId", (req, res) => {
     db.getReviewsByServiceId(req.params.serviceId)
         .then(reviews => {
@@ -306,7 +325,12 @@ app.get("/reviews/:serviceId", (req, res) => {
 });
 
 app.post("/review", (req, res) => {
-    db.addReview(req.body.userId, req.session.id, req.body.comment)
+    db.addReview(
+        req.body.serviceId,
+        req.session.id,
+        req.body.title,
+        req.body.comment
+    )
         .then(result => {
             res.json({
                 success: true,
@@ -316,7 +340,7 @@ app.post("/review", (req, res) => {
         .catch(err => console.log(err));
 });
 
-app.get("/user", signedOutRedirect, function(req, res) {
+app.get("/user", function(req, res) {
     db.getUserById(req.session.id)
         .then(data => res.json(data))
         .catch(err => {
@@ -328,6 +352,12 @@ app.get("/user", signedOutRedirect, function(req, res) {
 app.get("/place", async (req, res) => {
     const place = req.query.input;
     const result = await getPlaceId(place);
+    res.json(result);
+});
+
+app.get("/place-text", async (req, res) => {
+    const place = req.query.input;
+    const result = await getPlaceIdByText(place);
     res.json(result);
 });
 

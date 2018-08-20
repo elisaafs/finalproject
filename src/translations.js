@@ -8,43 +8,62 @@ const translations = {
 
     SAVE_BUTTON: {
         en: "Save",
-        de: "Anmelden",
+        de: "Speichern",
         pt: "Salvar",
         es: "Guardar"
     },
 
     DISTANCE: {
         en: "Distance:",
-        de: "Anmelden",
+        de: "Entfernung",
         pt: "Distância:",
-        es: "Guardar"
+        es: "Distancia"
+    },
+    TITLE: {
+        en: "Title",
+        de: "Titel",
+        pt: "Titúlo",
+        es: "Título"
+    },
+    FIND_MY_LOCATION: {
+        en: "or find my location",
+        de: "oder finde meine Position",
+        pt: "ou encontre minha localização",
+        es: "o encuentre mi localización"
+    },
+
+    NO_SERVICES: {
+        en: "No services found",
+        de: "Keine Services gefunden",
+        pt: "Nenhum serviço encontrado",
+        es: "No se han encontrado servicios"
     },
 
     WELCOME: {
         en: "Welcome,",
-        de: "Anmelden",
+        de: "Willkommen,",
         pt: "Bem-vindo(a),",
-        es: "Guardar"
+        es: "Bienvenido(a),"
     },
     REGISTER_LANGUAGE: {
         en: "Register a service in the language of your preference",
-        de: "Anmelden",
+        de: "Registriere einen Service in deiner bevorzugten Sprache",
         pt: "Registre um serviço no seu idioma de preferência",
-        es: "Guardar"
+        es: "Registrar un servicio en el idioma de su preferencia"
     },
 
     TATTOO: {
         en: "Tattoo Artist",
-        de: "Anmelden",
+        de: "Tattoo-Artist",
         pt: "Tatuador",
-        es: "Guardar"
+        es: "Tatuador"
     },
 
     SEARCH_SERVICE: {
         en: "Search a service",
-        de: "Anmelden",
+        de: "Suche einen Service",
         pt: "Busque um serviço",
-        es: "Guardar"
+        es: "Buscar un servicio"
     },
     LOCATION: {
         en: "Location",
@@ -62,86 +81,86 @@ const translations = {
 
     SEARCH_NOW: {
         en: "Search Now",
-        de: "Suche",
-        pt: "Busque Agora",
-        es: "Localizacion"
+        de: "Suche Jetzt",
+        pt: "Buscar Agora",
+        es: "Buscar Ahora"
     },
 
     TEXT_MAIN: {
-        en: "The services you need in the language of your preference",
-        de: "Ort",
-        pt: "Os serviços que você precisa no idioma de sua preferência",
-        es: "Localizacion"
+        en: "The services you need in the language you want",
+        de: "Die Services, die du brauchst in der Sprache, die du magst",
+        pt: "Os serviços que você precisa no idioma que você deseja",
+        es: "Los servicios que necesita en el idioma que desea"
     },
 
     LIVES: {
         en: "Lives in",
-        de: "Anmelden",
+        de: "Wohnt in",
         pt: "Mora em",
-        es: "Guardar"
+        es: "Vive en"
     },
 
     LANGUAGES_SPEAK: {
         en: "Speaks",
-        de: "Anmelden",
+        de: "Spricht",
         pt: "Fala",
         es: "Habla"
     },
 
     FOOD: {
         en: "Food",
-        de: "Anmelden",
+        de: "Essen",
         pt: "Comida",
-        es: "Habla"
+        es: "Comida"
     },
 
     NIGHT_CLUB: {
         en: "Night Club",
-        de: "Anmelden",
+        de: "Nachtclub",
         pt: "Boate",
-        es: "Habla"
+        es: "Discoteca"
     },
 
     PUBS: {
         en: "Bar",
-        de: "Anmelden",
+        de: "Kneipe",
         pt: "Bar",
-        es: "Habla"
+        es: "Bar"
     },
 
     BARS: {
         en: "Pub and Bar",
-        de: "Anmelden",
+        de: "Bar",
         pt: "Pub e Bar",
-        es: "Habla"
+        es: "Pub y Bar"
     },
 
     KARAOKE: {
         en: "Karaoke",
-        de: "Anmelden",
+        de: "Karaoke",
         pt: "Karaokê",
-        es: "Habla"
+        es: "Karaoke"
     },
 
     SEX_CLUB: {
-        en: "Karaoke",
-        de: "Anmelden",
+        en: "Sexclub",
+        de: "Sexclub",
         pt: "Clube de Sexo",
-        es: "Habla"
+        es: "Club Sexual"
     },
 
     LOCKSMITH: {
         en: "Locksmith",
-        de: "Anmelden",
+        de: "Schmied",
         pt: "Chaveiro",
-        es: "Habla"
+        es: "Cerrajero"
     },
 
     EDIT_SERVICES: {
         en: "Edit service informations",
-        de: "Anmelden",
-        pt: "Editar as informações do serviço.",
-        es: "Editar información de servicio."
+        de: "Servicedetails editieren",
+        pt: "Editar as informações do serviço",
+        es: "Editar información de servicio"
     },
 
     ABOUT_ME: {
@@ -152,281 +171,274 @@ const translations = {
     },
 
     COFFEE: {
-        en: "Coffee and Tea",
-        de: "Anmelden",
+        en: "Café",
+        de: "Café",
         pt: "Café",
-        es: "Habla"
+        es: "Café"
     },
 
     BAKERIES: {
-        en: "Bakerie",
-        de: "Anmelden",
+        en: "Bakery",
+        de: "Bäckerei",
         pt: "Doceria",
-        es: "Habla"
+        es: "Panadería"
     },
 
     DOCTOR: {
         en: "Doctor",
-        de: "Anmelden",
+        de: "Arzt",
         pt: "Médico",
-        es: "Habla"
+        es: "Médico"
     },
 
     PSYCHOLOGY: {
         en: "Psychologist",
-        de: "Anmelden",
+        de: "Psychologe",
         pt: "Psicólogo",
-        es: "Habla"
+        es: "Psicólogo"
     },
 
     ENGLISH: {
         en: "English",
-        de: "Anmelden",
+        de: "Englisch",
         pt: "Inglês",
-        es: "Habla"
+        es: "Inglés"
     },
 
     GERMAN: {
         en: "German",
-        de: "Anmelden",
+        de: "Deutsch",
         pt: "Alemão",
-        es: "Habla"
+        es: "Alemán"
     },
 
     PORTUGUESE: {
         en: "Portuguese",
-        de: "Anmelden",
+        de: "Portugiesisch",
         pt: "Português",
-        es: "Habla"
+        es: "Portugués"
     },
 
     SPANISH: {
         en: "Spanish",
-        de: "Anmelden",
+        de: "Spanisch",
         pt: "Espanhol",
-        es: "Habla"
+        es: "Español"
     },
 
     FRENCH: {
         en: "French",
-        de: "Anmelden",
+        de: "Französisch",
         pt: "Francês",
-        es: "Habla"
+        es: "Francés"
     },
 
     ITALIAN: {
         en: "Italian",
-        de: "Anmelden",
+        de: "Italienisch",
         pt: "Italiano",
-        es: "Habla"
+        es: "Italiano"
     },
 
     CHINESE: {
         en: "Chinese",
         de: "Chinesisch",
-        pt: "Italiano",
-        es: "Habla"
+        pt: "Chinês",
+        es: "Chino"
     },
 
     DUTCH: {
         en: "Dutch",
         de: "Niederländisch",
-        pt: "Italiano",
-        es: "Habla"
+        pt: "Holandês",
+        es: "Neerlandés"
     },
 
     POLISH: {
         en: "Polish",
         de: "Polnisch",
-        pt: "Italiano",
-        es: "Habla"
+        pt: "Polonês",
+        es: "Polonés"
     },
 
     VIETNAMESE: {
         en: "Vietnamese",
         de: "Vietnamesisch",
-        pt: "Italiano",
-        es: "Habla"
+        pt: "Vietnamita",
+        es: "Vietnamita"
     },
 
     RUSSIAN: {
         en: "Russian",
-        de: "Anmelden",
+        de: "Russisch",
         pt: "Russo",
-        es: "Habla"
+        es: "Ruso"
     },
 
     TURKISH: {
         en: "Turkish",
-        de: "Anmelden",
+        de: "Türkisch",
         pt: "Turco",
-        es: "Habla"
+        es: "Turco"
     },
 
     JAPONESE: {
         en: "Japonese",
-        de: "Anmelden",
+        de: "Japanisch",
         pt: "Japonês",
-        es: "Habla"
+        es: "Japonés"
     },
 
     BEAUTY: {
         en: "Beauty",
-        de: "Anmelden",
+        de: "Beauty",
         pt: "Beleza",
-        es: "Habla"
+        es: "Belleza"
     },
 
     REGISTERED_SERVICES: {
         en: "Registered Services",
-        de: "Über mich",
+        de: "Registrierte Services",
         pt: "Serviços Registrados",
         es: "Servicios Registrados"
     },
 
-    REQUIRED_FIELDS: {
-        en: "Please, fill the required fields.",
-        de: "Anmelden",
+    EMAIL_EXISTS: {
+        en: "Email already exists.",
+        de: "Email existiert bereits.",
         pt: "Por favor, preencha os campos obrigatórios.",
         es: "Por favor, rellene los campos obligatorios."
     },
 
     SELECT_IMAGE: {
         en: "Select an image",
-        de: "Anmelden",
+        de: "Wähle ein Bild aus",
         pt: "Selecione uma imagem",
         es: "Seleccione una imagen"
     },
 
     WE_SPEAK: {
         en: "We speak your language",
-        de: "Anmelden",
+        de: "Wir sprechen deine Sprache",
         pt: "Nós falamos a sua língua",
         es: "Nosotros hablamos tu idioma"
     },
 
-    WE_SPEAK_II: {
-        en: "language",
-        de: "Anmelden",
-        pt: "língua",
-        es: "idioma"
-    },
-
-    RATTING: {
-        en: "Select your ratting.",
-        de: "Anmelden",
-        pt: "Selecione a sua classificação.",
-        es: "Selecciona tu clasificación."
-    },
-
     ERROR_MESSAGE_INCORRECT: {
         en: "Email or password incorrect.",
-        de: "Anmelden",
+        de: "Email oder Passwort falsch.",
         pt: "Email ou senha incorretos.",
         es: "Email o contraseña incorrectos."
     },
 
+    SHARE_YOUR: {
+        en: "Review",
+        de: "Bewertung",
+        pt: "Avaliação",
+        es: "Reseña"
+    },
+
     ERROR_MESSAGE_EMPTY: {
         en: "Please, fill all the fields.",
-        de: "Anmelden",
+        de: "Bitte fülle alle erforderlichen Felder aus.",
         pt: "Por favor, preencha todos os campos.",
         es: "Por favor, rellene todos los campos."
     },
 
-    PUBLISH_RATE: {
-        en: "Post Review.",
-        de: "Anmelden",
-        pt: "Publicar a sua avaliação.",
-        es: "Publicar tu review."
-    },
-
     MY_PROFILE: {
         en: "My Profile",
-        de: "Anmelden",
+        de: "Mein Profil",
         pt: "Meu Perfil",
         es: "Mi Perfil"
     },
 
+    MY_REVIEW: {
+        en: "Write a Review",
+        de: "Schreibe eine Bewertung",
+        pt: "Escreva uma Avaliação",
+        es: "Escribe una Reseña"
+    },
+
     EDIT_PROFILE: {
         en: "Update your profile",
-        de: "Anmelden",
+        de: "Bearbeite dein Profil",
         pt: "Atualize seu perfil",
         es: "Editar Perfil"
     },
 
     NEW_PASSWORD: {
         en: "Type a new password",
-        de: "Anmelden",
+        de: "Neues Passwort",
         pt: "Digite uma nova senha",
-        es: "Editar Perfil"
+        es: "Escribra una nueva contraseña"
     },
 
     LANGUAGES_I_SPEAK: {
         en: "My mother tongue is",
-        de: "Anmelden",
+        de: "Meine Muttersprache ist",
         pt: "Minha língua materna é",
-        es: "Hablo"
+        es: "Mi lengua materna es"
     },
 
     PROFILE: {
         en: "Profile",
-        de: "Anmelden",
+        de: "Profil",
         pt: "Perfil",
         es: "Perfil"
     },
 
     I_LIVE: {
         en: "I live in",
-        de: "Anmelden",
+        de: "Ich wohne in",
         pt: "Moro em",
-        es: "Perfil"
+        es: "Vivo en"
     },
 
     REGISTER_SERVICE: {
         en: "Register a service",
-        de: "Anmelden",
+        de: "Registriere einen Service",
         pt: "Registre um serviço",
         es: "Registrar un servicio"
     },
 
     REGISTER_BUTTON: {
         en: "Register",
-        de: "Anmelden",
+        de: "Registrieren",
         pt: "Registrar",
         es: "Registrar"
     },
 
     SIGNUP_BUTTON: {
         en: "Sign Up",
-        de: "Anmelden",
+        de: "Profil anlegen",
         pt: "Cadastre-se",
-        es: "Registrate"
+        es: "Registrarse"
     },
 
     LOGOUT_BUTTON: {
         en: "Log Out",
-        de: "Anmelden",
+        de: "Logout",
         pt: "Sair",
         es: "Salir"
     },
 
     NAME: {
         en: "Name",
-        de: "Anmelden",
+        de: "Name",
         pt: "Nome",
         es: "Nombre"
     },
 
     FIRSTNAME: {
         en: "First Name",
-        de: "Anmelden",
+        de: "Vorname",
         pt: "Nome",
         es: "Nombre"
     },
 
     LASTNAME: {
         en: "Last Name",
-        de: "Anmelden",
+        de: "Nachname",
         pt: "Sobrenome",
         es: "Apellido"
     },
@@ -440,240 +452,226 @@ const translations = {
 
     PASSWORD: {
         en: "Password",
-        de: "Email",
+        de: "Passwort",
         pt: "Senha",
         es: "Contraseña"
     },
 
-    UPDATE_SERVICE: {
-        en: "Update service informations",
-        de: "Email",
-        pt: "Atualizar informações do serviço",
-        es: "Actualizar foto de perfil"
-    },
-
     UPDATE_PROFILE_PIC: {
-        en: "Update profile picture",
-        de: "Email",
-        pt: "Atualizar foto de perfil",
+        en: "Update your profile picture",
+        de: "Profilbild aktualisieren",
+        pt: "Atualize sua foto de perfil",
         es: "Actualizar foto de perfil"
     },
 
     UPDATE_PROFILE_PIC_SERVICE: {
-        en: "Update profile picture to the service",
-        de: "Email",
+        en: "Upload a profile picture for the service",
+        de: "Lade ein Profilbild für den Service hoch",
         pt: "Atualizar foto de perfil do serviço",
-        es: "Actualizar foto de perfil"
-    },
-
-    ADDRESS: {
-        en: "Address",
-        de: "Email",
-        pt: "Endereço",
-        es: "Dirección"
+        es: "Subir una foto de perfil para el servicio"
     },
 
     LANGUAGE: {
         en: "Language",
-        de: "Email",
+        de: "Sprache",
         pt: "Idioma",
         es: "Idioma"
     },
 
     LANGUAGE_P: {
         en: "Language:",
-        de: "Email:",
+        de: "Sprache:",
         pt: "Idioma:",
         es: "Idioma:"
     },
 
     SEND_BUTTON: {
         en: "Send",
-        de: "Anmelden",
+        de: "Absenden",
         pt: "Enviar",
         es: "Enviar"
     },
 
     DESCRIPTION: {
         en: "Description",
-        de: "Anmelden",
+        de: "Beschreibung",
         pt: "Descrição",
         es: "Descripción"
     },
 
     HOMEPAGE: {
         en: "Homepage",
-        de: "Anmelden",
+        de: "Homepage",
         pt: "Homepage",
         es: "Homepage"
     },
 
     CATEGORIE: {
         en: "Categorie",
-        de: "Anmelden",
+        de: "Kategorie",
         pt: "Categoria",
         es: "Categoría"
     },
 
     CATEGORIE_P: {
         en: "Categorie:",
-        de: "Anmelden:",
+        de: "Kategorie:",
         pt: "Categoria:",
         es: "Categoría:"
     },
 
     CONTACT: {
         en: "Contact",
-        de: "Anmelden",
+        de: "Kontakt",
         pt: "Contato",
         es: "Contacto"
     },
 
     SUBCATEGORIE: {
         en: "Subcategorie",
-        de: "Anmelden",
+        de: "Unterkategorie",
         pt: "Subcategoria",
         es: "Subcategoría"
     },
 
     RESTAURANTS: {
         en: "Restaurant",
-        de: "Anmelden",
+        de: "Restaurant",
         pt: "Restaurante",
         es: "Restaurante"
     },
 
     SHOPPING: {
         en: "Shopping",
-        de: "Anmelden",
+        de: "Shopping",
         pt: "Compras",
         es: "Compras"
     },
 
     HOME_SERVICES: {
         en: "Home Services",
-        de: "Anmelden",
+        de: "Handwerker",
         pt: "Serviços para Casa",
         es: "Servicios para Casa"
     },
 
     PETS: {
         en: "Pets",
-        de: "Anmelden",
+        de: "Haustiere",
         pt: "Animais",
         es: "Animales"
     },
 
     PROFESSIONAL_SERVICES: {
         en: "Professional Services",
-        de: "Anmelden",
+        de: "Dienstleistungen",
         pt: "Serviços Profissionais",
         es: "Servicios Profesionales"
     },
 
     ACTIVE_LIFE: {
         en: "Active Life",
-        de: "Anmelden",
+        de: "Aktives Leben",
         pt: "Vida Ativa",
         es: "Vida Sana"
     },
 
     NIGHTLIFE: {
         en: "Nightlife",
-        de: "Anmelden",
+        de: "Nachtleben",
         pt: "Vida Noturna",
         es: "Vida Nocturna"
     },
 
     AUTOMOTIVE: {
         en: "Automotives Services",
-        de: "Anmelden",
+        de: "Automobil",
         pt: "Serviços Automotivos",
         es: "Automóviles"
     },
 
     PHOTOGRAPHY: {
         en: "Photographer",
-        de: "Anmelden",
+        de: "Fotograph",
         pt: "Fotógrafo",
         es: "Fotografía"
     },
 
     TAILOR: {
         en: "Tailor",
-        de: "Anmelden",
+        de: "Schneider",
         pt: "Alfaiate",
-        es: "Fotografía"
+        es: "Costurero"
     },
 
     MECHANIC: {
         en: "Mechanic",
-        de: "Anmelden",
+        de: "Mechaniker",
         pt: "Mecânico",
-        es: "Fotografía"
+        es: "Mecánico"
     },
 
     MEN_CLOTHING: {
         en: "Men's Clothing",
-        de: "Anmelden",
+        de: "Herrenbekleidung",
         pt: "Roupas Masculinas",
-        es: "Fotografía"
+        es: "Ropa para hombres"
     },
 
     VET: {
         en: "Vet",
-        de: "Anmelden",
+        de: "Tierarzt",
         pt: "Veterinário",
-        es: "Fotografía"
+        es: "Veterinario"
     },
 
     PET_SHOP: {
         en: "Pet Shop",
-        de: "Anmelden",
+        de: "Zoohandlung",
         pt: "Pet Shop",
-        es: "Fotografía"
+        es: "Pet Shop"
     },
 
     GROOMING: {
         en: "Grooming",
-        de: "Anmelden",
+        de: "Fellpflege",
         pt: "Banho e Tosa",
-        es: "Fotografía"
+        es: "Aseo de Mascotas"
     },
 
     TRAINER: {
         en: "Trainer",
-        de: "Anmelden",
+        de: "Trainer",
         pt: "Adestrador",
-        es: "Fotografía"
+        es: "Entrenador de Mascotas"
     },
 
     SHOES: {
         en: "Shoes",
-        de: "Anmelden",
+        de: "Schuhe",
         pt: "Sapatos",
-        es: "Fotografía"
+        es: "Calzados"
     },
 
     PARTY_DRESS: {
         en: "Party Clothes",
-        de: "Anmelden",
+        de: "Partykleidung",
         pt: "Roupas de Festa",
-        es: "Fotografía"
+        es: "Ropa de Fiesta"
     },
 
     JEWELRY: {
         en: "Jewelry",
-        de: "Anmelden",
+        de: "Schmuck",
         pt: "Jóias",
-        es: "Fotografía"
+        es: "Joyas"
     },
 
     FEMININE_C: {
         en: "Feminine Clothes",
-        de: "Anmelden",
+        de: "Damenbekleidung",
         pt: "Roupas Femininas",
-        es: "Fotografía"
+        es: "Ropas para Mujeres"
     },
 
     PERSONAL_TRAINER: {
@@ -685,366 +683,345 @@ const translations = {
 
     SPORT_ITEMS: {
         en: "Sports Items",
-        de: "Anmelden",
+        de: "Sportartikel",
         pt: "Artigos Esportivos",
-        es: "Fotografía"
+        es: "Artículos Desportivos"
     },
 
     CHILDREN_C: {
-        en: "Children Clothes",
-        de: "Anmelden",
+        en: "Kids Clothes",
+        de: "Kinderbekleidung",
         pt: "Roupas Infantis",
-        es: "Fotografía"
+        es: "Ropa para Niños"
     },
 
     NURSE: {
         en: "Nurse",
-        de: "Anmelden",
+        de: "Krankenschwester",
         pt: "Enfermeiro",
-        es: "Fotografía"
+        es: "Enfermero"
     },
 
     COACH: {
-        en: "Coach",
-        de: "Anmelden",
-        pt: "Pofessor Particular",
-        es: "Fotografía"
+        en: "Tutor",
+        de: "Nachhilfe",
+        pt: "Professor Particular",
+        es: "Profesor Particular"
     },
 
     LANGUAGE_TEACHER: {
         en: "Language Teacher",
-        de: "Anmelden",
+        de: "Sprachlehrer",
         pt: "Professor de Idioma",
-        es: "Fotografía"
+        es: "Profesor de Idioma"
     },
 
     FLUENCE: {
-        en: "Fluence",
-        de: "Anmelden",
+        en: "Fluency",
+        de: "Sprachstufe",
         pt: "Fluência",
         es: "Fluidez"
     },
 
     CITY: {
         en: "City",
-        de: "Email",
+        de: "Stadt",
         pt: "Cidade",
         es: "Ciudad"
     },
 
     COUNTRY: {
         en: "Country",
-        de: "Email",
+        de: "Land",
         pt: "País",
         es: "País"
     },
 
     HOTELS: {
         en: "Hotels and Travel",
-        de: "Email",
+        de: "Hotels und Reise",
         pt: "Hotéis e Turismo",
         es: "Hoteles y Turismo"
     },
 
     HOTEL: {
         en: "Hotel",
-        de: "Email",
+        de: "Hotel",
         pt: "Hotel",
         es: "Hotel"
     },
 
     HOSTEL: {
         en: "Hostel",
-        de: "Email",
+        de: "Hostel",
         pt: "Hostel",
         es: "Hostel"
     },
 
     GUIDE: {
         en: "Tourist Guide",
-        de: "Email",
+        de: "Touristenführer",
         pt: "Guia Turístico",
-        es: "Hostel"
+        es: "Guía de Turismo"
     },
 
     TRANSFER: {
         en: "Transfer",
-        de: "Email",
+        de: "Transfer",
         pt: "Transfer",
-        es: "Hostel"
+        es: "Transfer"
     },
 
     TRAVEL_AGENCY: {
         en: "Travel Agency",
-        de: "Email",
+        de: "Reisebüro",
         pt: "Agência Turística",
-        es: "Hostel"
+        es: "Agencia de Viajes"
     },
 
     HEALTH: {
         en: "Health",
-        de: "Anmelden",
+        de: "Gesundheit",
         pt: "Saúde",
         es: "Salud"
     },
 
     OTHER: {
         en: "Other",
-        de: "Anmelden",
+        de: "Andere",
         pt: "Outros",
         es: "Otros"
     },
 
-    REAL_STATE: {
-        en: "Real State Services",
-        de: "Anmelden",
-        pt: "Serviços Imobiliários",
-        es: "Servicios Inmboliarios"
-    },
-
     EDUCATION: {
         en: "Education",
-        de: "Anmelden",
+        de: "Bildung",
         pt: "Educação",
         es: "Educación"
     },
 
     CHOOSE_CATEGORY: {
         en: "Choose a Category",
-        de: "Anmelden",
-        pt: "Escolha uma categoria",
-        es: "Educación"
+        de: "Wähle ein Land",
+        pt: "Escolha uma Categoria",
+        es: "Escoja una Categoría"
     },
 
     CHOOSE_LANGUAGE: {
         en: "Choose a Language",
-        de: "Anmelden",
-        pt: "Escolha um idioma",
-        es: "Educación"
+        de: "Wähle eine Sprache",
+        pt: "Escolha um Idioma",
+        es: "Escoja un Idioma"
     },
 
     PROFICIENCY: {
-        en: "Proficiency",
-        de: "Anmelden",
-        pt: "Grau de Fluência",
-        es: "Educación"
+        en: "Choose a Proficiency",
+        de: "Wähle eine Sprachstufe",
+        pt: "Escolha um Grau de Fluência",
+        es: "Escoja una Aptitud"
     },
 
     BASIC: {
         en: "Basic",
-        de: "Anmelden",
+        de: "Grundkenntnisse",
         pt: "Básico",
-        es: "Educación"
+        es: "Básico"
     },
 
     INTERMEDIATE: {
         en: "Intermediate",
-        de: "Anmelden",
+        de: "Mittel",
         pt: "Intermediário",
-        es: "Educación"
+        es: "Intermediario"
     },
 
     ALTERNATIVE: {
         en: "Alternative Medicine",
-        de: "Anmelden",
+        de: "Altenativmedizin",
         pt: "Medicina Alternativa",
-        es: "Educación"
+        es: "Medicina Alternativa"
     },
 
     CHOOSE_SUB: {
-        en: "Choose a subcategory",
-        de: "Anmelden",
-        pt: "Escolha uma subcategoria",
-        es: "Educación"
+        en: "Choose a Subcategory",
+        de: "Wähle eine Unterkategorie",
+        pt: "Escolha uma Subcategoria",
+        es: "Escoja una Subcategoría"
     },
 
     HAIR: {
         en: "Hair Stylist",
-        de: "Anmelden",
+        de: "Friseur",
         pt: "Cabeleireiro",
-        es: "Educación"
+        es: "Peluquero"
     },
 
     BARBER: {
         en: "Barber",
-        de: "Anmelden",
+        de: "Barbier",
         pt: "Barbeiro",
-        es: "Educación"
+        es: "Barbero"
     },
 
     WAXING: {
         en: "Waxing",
-        de: "Anmelden",
+        de: "Waxing",
         pt: "Depilação",
-        es: "Educación"
+        es: "Depilácion"
     },
 
     FACE_CLEAN: {
         en: "Skin Cleansing",
-        de: "Anmelden",
+        de: "Hautreinigung",
         pt: "Limpeza de Pele",
-        es: "Educación"
+        es: "Limpieza de la Piel"
+    },
+
+    MAKE_UP: {
+        en: "Make Up Artist",
+        de: "Make Up",
+        pt: "Maquiador",
+        es: "Maquillador"
     },
 
     DESIGN: {
         en: "Eyebrow Design",
-        de: "Anmelden",
+        de: "Augenbrauen",
         pt: "Design de Sobrancelha",
-        es: "Educación"
+        es: "Diseño de Cejas"
     },
 
     BRICKLAYER: {
         en: "Bricklayer",
-        de: "Anmelden",
+        de: "Maurer",
         pt: "Pedreiro",
-        es: "Educación"
+        es: "Albañil"
     },
 
     PAINTER: {
         en: "Painter and Decorator",
-        de: "Anmelden",
+        de: "Maler und Dekorateur",
         pt: "Pintor",
-        es: "Educación"
+        es: "Pintor"
     },
 
     PLUMBER: {
         en: "Plumber",
-        de: "Anmelden",
+        de: "Klempner",
         pt: "Encanador",
-        es: "Educación"
+        es: "Fontanero"
     },
 
     CARPINTEIRO: {
         en: "Carpenter",
-        de: "Anmelden",
+        de: "Tischler",
         pt: "Carpinteiro",
-        es: "Educación"
+        es: "Carpintero"
     },
 
     ELECTRICIAN: {
         en: "Electrician",
-        de: "Anmelden",
+        de: "Elektriker",
         pt: "Eletricista",
-        es: "Educación"
+        es: "Electricista"
     },
 
     GARDENER: {
         en: "Gardener",
-        de: "Anmelden",
+        de: "Gärtner",
         pt: "Jardineiro",
-        es: "Educación"
+        es: "Jardinero"
     },
 
     CLEANING: {
         en: "Cleaning",
-        de: "Anmelden",
+        de: "Reinigung",
         pt: "Limpeza",
-        es: "Educación"
+        es: "Limpieza"
     },
 
     MASSAGE: {
         en: "Massage and Body Treatments",
-        de: "Anmelden",
+        de: "Massage und Wellness",
         pt: "Massagem e Tratamentos Corporais",
-        es: "Educación"
+        es: "Massages y Tratamentos Corporales"
     },
 
     MANICURE: {
         en: "Manicure and Pedicure",
-        de: "Anmelden",
+        de: "Maniküre und Pediküre",
         pt: "Manicure e Pedicure",
-        es: "Educación"
+        es: "Manicure y Pedicure"
     },
 
     SPEECH: {
         en: "Speech Therapy",
-        de: "Anmelden",
+        de: "Sprachtherapie",
         pt: "Terapia da Fala",
-        es: "Educación"
+        es: "Terapia del Lenguaje"
     },
 
     PHARMACEUTICAL: {
-        en: "Pharmaceutical",
-        de: "Anmelden",
+        en: "Pharmacist",
+        de: "Apotheke",
         pt: "Farmacêutico",
-        es: "Educación"
+        es: "Farmacéutico"
     },
 
     LAWYER: {
         en: "Lawyer",
-        de: "Anmelden",
+        de: "Anwalt",
         pt: "Advogado",
-        es: "Educación"
+        es: "Abogado"
     },
 
     ARCHITECT: {
         en: "Architect",
-        de: "Anmelden",
+        de: "Architekt",
         pt: "Arquiteto",
-        es: "Educación"
+        es: "Arquitecto"
     },
 
     STATE_AGENT: {
-        en: "State Agent",
-        de: "Anmelden",
+        en: "Real State Agent",
+        de: "Makler",
         pt: "Corretor de Imóvel",
-        es: "Educación"
+        es: "Agente Inmobiliario"
     },
 
     TRANSLATOR: {
         en: "Translator and Interpreter",
-        de: "Anmelden",
+        de: "Dolmetscher",
         pt: "Tradutor e Intérprete",
-        es: "Educación"
+        es: "Traductor y intérprete"
     },
 
     DESIGN_G: {
-        en: "Design",
-        de: "Anmelden",
-        pt: "Design",
-        es: "Educación"
+        en: "Designer",
+        de: "Designer",
+        pt: "Designer",
+        es: "Designer"
     },
 
     ADVANCED: {
         en: "Fluent or native",
-        de: "Anmelden",
+        de: "Flüssig oder Muttersprache",
         pt: "Fluente ou nativo",
-        es: "Educación"
+        es: "Fluido o nativo"
     },
 
     PHYSIO: {
         en: "Physiotherapist",
-        de: "Anmelden",
+        de: "Physiotherapeut",
         pt: "Fisioterapeuta",
-        es: "Educación"
+        es: "Fisioterapeuta"
     },
 
     DENTIST: {
         en: "Dentist",
-        de: "Anmelden",
+        de: "Zahnarzt",
         pt: "Dentista",
-        es: "Educación"
-    },
-
-    EVENT_PLANNING: {
-        en: "Event Planning",
-        de: "Anmelden",
-        pt: "Planejamento de Eventos",
-        es: "Planificación de Eventos"
-    },
-
-    LOCAL_SERVICES: {
-        en: "Local Services",
-        de: "Email",
-        pt: "Serviços Locais",
-        es: "Servicios Locales"
-    },
-
-    FINANCIAL_SERVICES: {
-        en: "Financial Services",
-        de: "Anmelden",
-        pt: "Serviços Financeiros",
-        es: "Servicios Financieros"
+        es: "Dentista"
     }
 };
 

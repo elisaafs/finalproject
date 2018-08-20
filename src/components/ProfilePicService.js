@@ -10,7 +10,7 @@ function ProfilePicService({ image, name, language, clickHandler }) {
                 alt={name}
                 onClick={clickHandler}
             />
-            <div className="change-picture">
+            <div className="change-picture-2">
                 <div className="text-change-picture" onClick={clickHandler}>
                     <i className="fas fa-camera camera" />{" "}
                     {translations.UPDATE_PROFILE_PIC_SERVICE[language]}

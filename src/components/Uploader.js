@@ -17,7 +17,7 @@ class Uploader extends Component {
     upload() {
         var formData = new FormData();
         formData.append("file", this.state.imageFile);
-        axios.post("/upload", formData).then(res => {
+        axios.post(this.props.postUrl, formData).then(res => {
             this.props.setImage(res.data.url);
         });
     }
@@ -33,7 +33,7 @@ class Uploader extends Component {
                                 {translations.UPDATE_PROFILE_PIC[language]}
                             </h3>
                             <i
-                                className="fas fa-times icon-modal"
+                                className="fas fa-times icon-modal close"
                                 onClick={closeUploader}
                             />
                         </div>
@@ -51,8 +51,7 @@ class Uploader extends Component {
                             />
 
                             <button
-                                id="upload-button"
-                                className=""
+                                className="button-search"
                                 onClick={this.upload}
                                 name="button"
                             >

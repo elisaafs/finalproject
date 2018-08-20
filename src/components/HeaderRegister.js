@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { changeLanguage } from "../actions/language";
-import { setMyProfilePic, loadMyProfile } from "../actions/profile";
+import { loadMyProfile } from "../actions/profile";
 import translations from "../translations";
 import Logo from "./Logo";
 
@@ -20,12 +20,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         changeLanguage: language => dispatch(changeLanguage(language)),
-        setProfilePic: url => dispatch(setMyProfilePic(url)),
         loadMyProfile: dispatch(loadMyProfile())
     };
 };
 
-function HeaderInside({
+function HeaderRegister({
     loggedIn,
     language,
     changeLanguage,
@@ -85,15 +84,19 @@ function HeaderInside({
             ) : (
                 <div className="header-search">
                     <div className="logo-register">
-                        <Logo />
-                        <div className="names-header-search">
-                            <div className="welcome2">
-                                {translations.WELCOME[language]}{" "}
+                        <Link to="/">
+                            <Logo />
+                        </Link>
+                        <Link className="names-header-search" to="/myservices">
+                            <div className="names-header-search">
+                                <div className="welcome2">
+                                    {translations.WELCOME[language]}{" "}
+                                </div>
+                                <span className="names-header2">
+                                    {firstName} {lastName}
+                                </span>
                             </div>
-                            <span className="names-header2">
-                                {firstName} {lastName}
-                            </span>
-                        </div>
+                        </Link>
                     </div>
                     <div className="links-header">
                         <div className="name-pic">
@@ -139,4 +142,4 @@ function HeaderInside({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(HeaderInside);
+)(HeaderRegister);

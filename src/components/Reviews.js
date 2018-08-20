@@ -17,7 +17,8 @@ const mapStateToProps = (state, props) => {
 class Reviews extends React.Component {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleNewTitle = this.handleNewTitle.bind(this);
+        this.handleNewReview = this.handleNewReview.bind(this);
         this.addNewReview = this.addNewReview.bind(this);
         this.state = {};
     }
@@ -27,11 +28,21 @@ class Reviews extends React.Component {
     }
 
     addNewReview() {
-        this.props.dispatch(postReviews(this.state.newPost, this.props.id));
-        this.setState({ newReview: "" });
+        this.props.dispatch(
+            postReviews(
+                this.state.newReview,
+                this.state.newTitle,
+                this.props.id
+            )
+        );
+        this.setState({ newReview: "", newTitle: "" });
     }
 
-    handleChange(e) {
+    handleNewTitle(e) {
+        this.setState({ newTitle: e.target.value });
+    }
+
+    handleNewReview(e) {
         this.setState({ newReview: e.target.value });
     }
 
@@ -49,25 +60,39 @@ class Reviews extends React.Component {
                     <div key={reviews.id} className="single-friend">
                         <div className="friendsof-wrapper">
                             <div className="img-comment">
-                                <div className="img-name-wallpost">
-                                    <div className="wrapper-online-img">
-                                        <Link to={`/user/${reviews.author_id}`}>
-                                            {profilePic}
-                                        </Link>
-                                    </div>
-                                    <Link
-                                        className="a-name"
-                                        to={`/user/${reviews.author_id}`}
-                                    >
-                                        <div className="friendof-name">
-                                            {firstName} {lastName}
+                                <div className="img-comment2">
+                                    <div className="img-name-wallpost">
+                                        <div className="wrapper-online-img">
+                                            <Link
+                                                className="picture-review"
+                                                to={`/user/${
+                                                    reviews.author_id
+                                                }`}
+                                            >
+                                                {profilePic}
+                                            </Link>
+                                            <Link
+                                                className="a-name"
+                                                to={`/user/${
+                                                    reviews.author_id
+                                                }`}
+                                            >
+                                                <div className="friendof-name">
+                                                    {firstName} {lastName}
+                                                </div>
+                                            </Link>
                                         </div>
-                                    </Link>
+                                    </div>
+                                    <div className="titleandcomment">
+                                        <div className="title">
+                                            {reviews.title}
+                                        </div>
+                                        <div className="comment">
+                                            {reviews.comment}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div className="comment">{reviews.rate}</div>
-                            <div className="comment">{reviews.comment}</div>
                         </div>
                     </div>
                 );
@@ -82,10 +107,7 @@ class Reviews extends React.Component {
     }
 
     createReviewsView() {
-        return this.createReviews(
-            this.props.reviews,
-            "Be the first one to leave a review."
-        );
+        return this.createReviews(this.props.reviews);
     }
 
     render() {
@@ -99,22 +121,32 @@ class Reviews extends React.Component {
                 ) : (
                     <div className="big-wrapper-friendsof">
                         <div className="extra-extra-wrapper">
-                            <h1 className="online-title">
-                                <i className="fas fa-utensils friendsof" />
-                                {translations.EDIT_SERVICES[language]}
+                            <h1 className="review-title">
+                                <i className="fas fa-pencil-alt pencil" />
+                                {translations.MY_REVIEW[language]}
                             </h1>
                             <div className="extra-wrapper-friendsof">
                                 {this.createReviewsView()}
                             </div>
                             <div className="wrapper-inlet-online">
                                 <textarea
-                                    onChange={this.handleChange}
+                                    onChange={this.handleNewTitle}
+                                    name="title"
+                                    placeholder={translations.TITLE[language]}
+                                    className="textarea-title"
+                                    value={this.state.newTitle}
+                                />
+                                <textarea
+                                    onChange={this.handleNewReview}
                                     name="comment"
+                                    placeholder={
+                                        translations.SHARE_YOUR[language]
+                                    }
                                     className="textarea-comment"
                                     value={this.state.newReview}
                                 />
                                 <button
-                                    className="button-comment"
+                                    className="button-search"
                                     onClick={this.addNewReview}
                                     type="submit"
                                 >

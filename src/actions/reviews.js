@@ -1,34 +1,27 @@
 import axios from "../axios";
+import { loadUser } from "./opp";
 
-export async function loadUser(userId) {
-    const { data } = await axios.get(`/otheruser/${userId}`);
-    return {
-        type: "USER_LOADED",
-        userId,
-        userInformation: data
-    };
-}
-
-export async function getReviews(dispatch, userId) {
-    const { data } = await axios.get(`/reviews/${userId}`);
+export async function getReviews(dispatch, serviceId) {
+    const { data } = await axios.get(`/reviews/${serviceId}`);
     data.forEach(comment => {
         dispatch(loadUser(comment.author_id));
     });
     return {
         type: "GET_REVIEWS",
-        userId,
+        serviceId,
         reviews: data
     };
 }
 
-export async function postReviews(review, userId) {
+export async function postReviews(review, title, serviceId) {
     const { data } = await axios.post("/review", {
-        userId,
-        review
+        serviceId,
+        title,
+        comment: review
     });
     return {
         type: "POST_REVIEW",
-        userId,
+        serviceId,
         comment: data.review
     };
 }

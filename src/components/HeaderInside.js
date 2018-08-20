@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { changeLanguage } from "../actions/language";
-import { setMyProfilePic, loadMyProfile } from "../actions/profile";
+import { loadMyProfile } from "../actions/profile";
 import translations from "../translations";
 import Logo from "./Logo";
 
@@ -20,7 +20,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         changeLanguage: language => dispatch(changeLanguage(language)),
-        setProfilePic: url => dispatch(setMyProfilePic(url)),
         loadMyProfile: dispatch(loadMyProfile())
     };
 };
@@ -38,7 +37,6 @@ function HeaderInside({
             {!loggedIn ? (
                 <div className="header-search">
                     <div className="logo-register">
-                        <Logo />
                         <Link to="/">
                             <Logo />
                         </Link>
@@ -86,8 +84,10 @@ function HeaderInside({
             ) : (
                 <div className="header-search">
                     <div className="logo-register">
-                        <Logo />
-                        <Link className="names-header-search" to="/profile">
+                        <Link to="/">
+                            <Logo />
+                        </Link>
+                        <Link className="names-header-search" to="/myservices">
                             <div className="names-header-search">
                                 <div className="welcome2">
                                     {translations.WELCOME[language]}{" "}

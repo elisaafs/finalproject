@@ -83,47 +83,36 @@ class ServiceSearch extends React.Component {
                         ) : null}
 
                         <form className="form" onSubmit={this.handleSubmit}>
-                            <div className="wrapper-search-picker">
-                                {" "}
-                                <CategoryPicker
-                                    language={language}
-                                    editable={true}
-                                    selectedCategory={
-                                        this.props.selectedCategory
-                                    }
-                                    selectedSubcategory={
-                                        this.props.selectedSubcategory
-                                    }
-                                    changeCategory={this.props.changeCategory}
-                                    changeSubcategory={
-                                        this.props.changeSubcategory
-                                    }
-                                />
-                                <LanguagePicker
-                                    language={language}
-                                    editable={true}
-                                    showFluency={false}
-                                    selectedLanguage={
-                                        this.props.selectedLanguage
-                                    }
-                                    changeLanguage={this.props.changeLanguage}
-                                />
-                                <span className="location-service">
-                                    <LocationPicker
-                                        className="location-service"
-                                        language={language}
-                                        editable={true}
-                                        placeId={this.props.placeId}
-                                        placeDescription={
-                                            this.props.placeDescription
-                                        }
-                                        changePlace={this.props.changeLocation}
-                                    />
-                                </span>
+                            <CategoryPicker
+                                language={language}
+                                editable={true}
+                                selectedCategory={this.props.selectedCategory}
+                                selectedSubcategory={
+                                    this.props.selectedSubcategory
+                                }
+                                changeCategory={this.props.changeCategory}
+                                changeSubcategory={this.props.changeSubcategory}
+                            />
+                            <LanguagePicker
+                                language={language}
+                                editable={true}
+                                showFluency={false}
+                                selectedLanguage={this.props.selectedLanguage}
+                                changeLanguage={this.props.changeLanguage}
+                            />
+                            <LocationPicker
+                                className="location-service"
+                                language={language}
+                                editable={true}
+                                placeId={this.props.placeId}
+                                placeDescription={this.props.placeDescription}
+                                changePlace={this.props.changeLocation}
+                            />
+                            {this.props.placeId ? (
                                 <button className="button-search" type="submit">
                                     {translations.SEARCH[language]}
                                 </button>
-                            </div>
+                            ) : null}
                         </form>
                     </div>
                 </div>

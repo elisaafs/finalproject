@@ -35,7 +35,7 @@ class Registration extends Component {
                     error: resp.data.error
                 });
             } else {
-                location.replace("/");
+                location.replace("/myservices");
             }
         });
     }
@@ -48,32 +48,36 @@ class Registration extends Component {
                     {this.state.error ? (
                         <div className="error">{this.state.error}</div>
                     ) : null}
-                    <form className="form" onSubmit={this.handleSubmit}>
+                    <form className="form-login" onSubmit={this.handleSubmit}>
                         <input
                             onChange={this.handleChange}
                             name="firstName"
                             placeholder={translations.FIRSTNAME[language]}
                             type="text"
+                            className="input-login"
                         />
                         <input
                             onChange={this.handleChange}
                             name="lastName"
                             placeholder={translations.LASTNAME[language]}
                             type="text"
+                            className="input-login"
                         />
                         <input
                             onChange={this.handleChange}
                             name="email"
                             placeholder="Email"
                             type="text"
+                            className="input-login"
                         />
                         <input
                             onChange={this.handleChange}
                             name="password"
                             placeholder={translations.PASSWORD[language]}
                             type="password"
+                            className="input-login"
                         />
-                        <button type="submit">
+                        <button className="login-button" type="submit">
                             {translations.SIGNUP_BUTTON[language]}
                         </button>
                     </form>

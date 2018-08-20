@@ -47,6 +47,5 @@ CREATE TABLE reviews (
     author_id INTEGER REFERENCES users(id),
     title TEXT,
     comment TEXT NOT NULL,
-    rate VARCHAR(15),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

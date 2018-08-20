@@ -3,13 +3,13 @@ export function reviews(state = {}, action) {
         case "GET_REVIEWS":
             return {
                 ...state,
-                [action.userId]: action.reviews
+                [action.serviceId]: action.reviews
             };
 
-        case "POST_REVIEWS":
+        case "POST_REVIEW":
             return {
                 ...state,
-                [action.userId]: [action.review, ...state[action.userId]]
+                [action.serviceId]: [action.comment, ...state[action.serviceId]]
             };
     }
 

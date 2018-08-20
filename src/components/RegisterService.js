@@ -70,7 +70,7 @@ class RegisterService extends Component {
                         error: translations.LOGIN_BUTTON[this.props.language]
                     });
             } else {
-                this.props.history.push("/profile");
+                this.props.history.push(`/service/${resp.data.service.id}`);
             }
         });
     }
@@ -81,7 +81,7 @@ class RegisterService extends Component {
             <div className="wrapper-main-2">
                 <HeaderRegister />
                 <div className="wrapper-grow">
-                    <div className="wrapper-search">
+                    <div className="wrapper-register">
                         <div className="text-search">
                             {translations.REGISTER_LANGUAGE[language]}
                         </div>
@@ -101,7 +101,7 @@ class RegisterService extends Component {
                                     placeholder={translations.NAME[language]}
                                     type="text"
                                     className="input-register first"
-                                />
+                                />{" "}
                                 <input
                                     onChange={this.handleChange}
                                     name="contact"
@@ -109,7 +109,6 @@ class RegisterService extends Component {
                                     type="text"
                                     className="input-register"
                                 />
-
                                 <input
                                     onChange={this.handleChange}
                                     name="homepage"
@@ -118,7 +117,7 @@ class RegisterService extends Component {
                                     }
                                     type="text"
                                     className="input-register"
-                                />
+                                />{" "}
                                 <input
                                     onChange={this.handleChange}
                                     name="description"
@@ -156,9 +155,11 @@ class RegisterService extends Component {
                                 placeDescription={this.state.placeDescription}
                                 changePlace={this.changeLocation}
                             />
-                            <button className="button-search" type="submit">
-                                {translations.REGISTER_BUTTON[language]}
-                            </button>
+                            {this.state.placeId ? (
+                                <button className="button-search" type="submit">
+                                    {translations.REGISTER_BUTTON[language]}
+                                </button>
+                            ) : null}
                         </form>
                     </div>
                 </div>

@@ -33,8 +33,6 @@ loadMyProfile().then(loadProfileAction => {
         <Provider store={store}>
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/signup" component={Registration} />
                     <Route exact path="/profile" component={Profile} />
                     <Route
                         exact
@@ -43,7 +41,11 @@ loadMyProfile().then(loadProfileAction => {
                     />
                     <Route path="/user/:id" component={Opp} />
                     <Route path="/service/:id" component={Services} />
-                    <Route exact path="/myservices" component={MyServices} />
+                    <Route
+                        exact
+                        path="/myservices"
+                        render={() => <SearchResults useMyServices={true} />}
+                    />
                     <Route
                         exact
                         path="/registration-service"
@@ -53,8 +55,9 @@ loadMyProfile().then(loadProfileAction => {
                     <Route
                         exact
                         path="/search-results"
-                        component={SearchResults}
+                        render={() => <SearchResults useMyServices={false} />}
                     />
+                    <Route path="/:page" component={FirstPage} />
                     <Route component={FirstPage} />
                 </Switch>
             </BrowserRouter>

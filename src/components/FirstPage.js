@@ -5,7 +5,9 @@ import LogoBig from "./LogoBig";
 import { changeLanguage } from "../actions/language";
 import translations from "../translations";
 import { Link } from "react-router-dom";
-import { setMyProfilePic, loadMyProfile } from "../actions/profile";
+import { loadMyProfile } from "../actions/profile";
+import Login from "./Login";
+import Registration from "./Registration";
 
 const mapStateToProps = state => {
     return {
@@ -16,7 +18,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         changeLanguage: language => dispatch(changeLanguage(language)),
-        setProfilePic: url => dispatch(setMyProfilePic(url)),
         loadMyProfile: () => dispatch(loadMyProfile())
     };
 };
@@ -24,11 +25,30 @@ const mapDispatchToProps = dispatch => {
 class FirstPage extends React.Component {
     constructor(props) {
         super(props);
-        this.backgroundImage = `${Math.floor(Math.random() * 25) + 1}.jpg`;
+        this.backgroundImage = `${Math.floor(Math.random() * 37) + 1}.jpg`;
+    }
+
+    createContent(page) {
+        switch (page) {
+            case "login":
+                return <Login history={this.props.history} />;
+            case "signup":
+                return <Registration history={this.props.history} />;
+            default:
+                return [
+                    <LogoBig key="logo" />,
+                    <div key="we-speak" className="text-main">
+                        {translations.WE_SPEAK[this.props.language]}
+                    </div>,
+                    <Link key="search" to="/search" className="search-now">
+                        {translations.SEARCH_NOW[this.props.language]}
+                    </Link>
+                ];
+        }
     }
 
     render() {
-        const { language } = this.props;
+        const content = this.createContent(this.props.match.params.page);
         return (
             <div
                 className="wrapper-main"
@@ -36,15 +56,7 @@ class FirstPage extends React.Component {
             >
                 <Header />
                 <div className="logo-text">
-                    <div className="wrapper-lupa">
-                        <LogoBig />
-                        <div className="text-main">
-                            {translations.WE_SPEAK[language]}
-                        </div>
-                        <Link to="/search" className="search-now">
-                            {translations.SEARCH_NOW[language]}
-                        </Link>
-                    </div>
+                    <div className="wrapper-lupa">{content}</div>
                 </div>
             </div>
         );

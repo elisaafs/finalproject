@@ -8,7 +8,6 @@ import translations from "../translations";
 import axios from "../axios";
 import { Link } from "react-router-dom";
 import { changeLanguage } from "../actions/language";
-import { setServicePic } from "../actions/services";
 
 const mapStateToProps = state => {
     return {
@@ -19,8 +18,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        changeLanguage: language => dispatch(changeLanguage(language)),
-        setServicePic: url => dispatch(setServicePic(url))
+        changeLanguage: language => dispatch(changeLanguage(language))
     };
 };
 
@@ -29,7 +27,6 @@ class MyServices extends React.Component {
         super(props);
         this.state = {};
         this.showServiceUploader = this.showServiceUploader.bind(this);
-        this.setImageService = this.setImageService.bind(this);
         this.closeServiceUploader = this.closeServiceUploader.bind(this);
     }
 
@@ -43,13 +40,6 @@ class MyServices extends React.Component {
         this.setState({
             uploaderServiceIsVisible: false
         });
-    }
-
-    setImageService(url) {
-        this.setState({
-            uploaderServiceIsVisible: false
-        });
-        this.props.setServicePic(url);
     }
 
     componentDidMount() {
@@ -125,6 +115,7 @@ class MyServices extends React.Component {
                                 setImage={this.setImage}
                                 closeUploader={this.closeUploader}
                                 language={language}
+                                postUrl={`/uploadpictureservice/`}
                             />
                         )}
                     </div>
