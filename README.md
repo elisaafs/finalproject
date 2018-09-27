@@ -10,8 +10,11 @@ Some of the features implemented: User Management, Service registration and sear
 Tongue First Page: the background image of the first page of the website appears randomly. I have chosen and optimized forty pictures so the user will always have a different experience when accessing the page.
 
 
+
 ![alt text](https://github.com/elisaafs/tongue/blob/master/public/T2.png "First Page - Tongue")
 One more example of Tongue's first page.
+
+
 
 ![alt text](https://github.com/elisaafs/tongue/blob/master/public/T3.png "Search Page")
 Tongue Search Page: in the search page, the user can find any kind of service according to the language.
